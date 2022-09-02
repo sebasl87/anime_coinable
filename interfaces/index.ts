@@ -1,4 +1,4 @@
-export interface MenuMobileProps {
+export interface HeaderContentProps {
     handleClick?: () => void;
     isMobile?: boolean;
     historyBack?: string;
