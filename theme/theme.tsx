@@ -35,12 +35,12 @@ const theme: ITheme = {
     main: '#4e34e1',
     text: '#4F5C81',
     darkText: '#00194D',
-    gray400: '#e5e5e5',
+    gray: '#EEEEEE',
     gray100: '#fafaff',
     background: '#f4f4ff',
     secundary: 'rgba(35, 51, 98, 0.50)',
     disabledText: 'rgba(35, 51, 98, 0.25)',
-    contrastText: '#ffffff',
+    white: '#ffffff',
     backgroundMenu: '#F5F5FB',
     disabledCard: 'rgba(255, 255, 255, 0.6)',
     menuDescription: '#9199B0',
@@ -53,13 +53,14 @@ const theme: ITheme = {
     return value;
   },
   textTypes: {
-    'H1-w700': css`
-      font-family: Inter, sans-serif;
-      font-size: 53px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 52px;
+    'H1-w600': css`
+      font-family: Inter;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: left;
+
     `,
     'H2-w700': css`
       font-family: Inter, sans-serif;
