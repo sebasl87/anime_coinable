@@ -2,7 +2,7 @@ import { SearchEye } from '../../../icons/searchEye/searchEye';
 import { ImputSearch } from '../../../interfaces';
 import styled from '@emotion/styled';
 import { theme } from '../../../theme';
-import { Text } from '../text/text'
+import { Text } from '../../atoms'
 
 const ContainerInput = styled.div<{
 }>`

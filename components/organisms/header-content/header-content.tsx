@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { DivMaster, Text, InputSearch } from '../../atoms';
+import { DivMaster, Text, InputSearch } from '../../index';
 
 import { HeaderContentProps } from '../../../interfaces';
 import styled from '@emotion/styled';
 import { theme } from '../../../theme';
 import { useRouter } from 'next/router';
-import ChevronBack from '../../../icons/chevronBack/ChevronBack';
+import ChevronBack from '../../../icons/chevronBack/chevronBack';
 
 
 const Container = styled.div<HeaderContentProps>`
