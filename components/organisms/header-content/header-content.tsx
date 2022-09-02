@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { DivMaster, Text, InputSearch } from '../../index';
+import { DivMaster, Text, InputSearch, CalendarDate } from '../../index';
 
 import { HeaderContentProps } from '../../../interfaces';
 import styled from '@emotion/styled';
@@ -46,7 +46,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => 
             Anime
           </Text>
           <InputSearch />
-          <div className="">Date</div>
+          <CalendarDate />
         </Container>
 
       ) : (

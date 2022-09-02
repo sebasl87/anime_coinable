@@ -5,7 +5,10 @@ export interface HeaderContentProps {
     isMobile?: boolean;
     historyBack?: string;
 }
+export interface CalendarDateProps{
+    isMobile?: boolean;
 
+}
 export interface MediaProps {
     ll?: string;
     lg?: string;
