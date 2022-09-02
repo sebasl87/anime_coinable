@@ -1,3 +1,5 @@
+import { ElementType } from "react";
+
 export interface HeaderContentProps {
     handleClick?: () => void;
     isMobile?: boolean;
@@ -79,3 +81,49 @@ export interface IDivMaster {
     gridTemplateRows?: string | MediaProps;
     gap?: string | MediaProps;
 }
+export interface IText {
+    opacity?: number;
+    borderRadius?: number;
+    border?: string;
+    children?: React.ReactNode | string;
+    display?: string | MediaProps;
+    fontColor?: string;
+    fontType?: string | MediaProps;
+    justifyContent?: string | MediaProps;
+    alignItems?: string | MediaProps;
+    margin?: string | MediaProps;
+    whiteSpace?: string | MediaProps;
+    mb?: number | MediaPropsInt;
+    ml?: number | MediaPropsInt;
+    mr?: number | MediaPropsInt;
+    mt?: number | MediaPropsInt;
+    mx?: number | MediaPropsInt;
+    my?: number | MediaPropsInt;
+    padding?: string | MediaProps;
+    pb?: number | MediaPropsInt;
+    pl?: number | MediaPropsInt;
+    pr?: number | MediaPropsInt;
+    pt?: number | MediaPropsInt;
+    px?: number | MediaPropsInt;
+    py?: number | MediaPropsInt;
+    textAlign?: string | MediaProps;
+    textDecoration?: string;
+    width?: string | MediaProps;
+    boxShadowHover?: string | MediaProps;
+    handleClick?: () => void;
+    cursor?: string | MediaProps;
+    colorHover?: string;
+    textTransform?: string;
+    tagType?: ElementType<unknown>;
+    flex?: number;
+    alignSelf?: string;
+  }
+
+  export interface ImputSearch {
+    onChange?: (value: string) => void;
+    placeHolder?: string;
+    round?: boolean;
+    size?: number;
+    fullWidth?: boolean;
+    align?: string;
+  }

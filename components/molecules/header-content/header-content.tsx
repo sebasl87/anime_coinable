@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { DivMaster } from '../../atoms';
+import { DivMaster, Text, InputSearch } from '../../atoms';
 
 import { HeaderContentProps } from '../../../interfaces';
 import styled from '@emotion/styled';
 import { theme } from '../../../theme';
 import { useRouter } from 'next/router';
-import ChevronBack from 'icons/ChevronBack';
+import ChevronBack from '../../../icons/chevronBack/ChevronBack';
+
 
 const Container = styled.div<HeaderContentProps>`
   align-items: center;
@@ -41,8 +42,10 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => 
     <>
       {pathMenu ? (
         <Container>
-          <p>Anime</p>
-          <div className="">Search</div>
+          <Text fontType="H1-w600">
+            Anime
+          </Text>
+          <InputSearch />
           <div className="">Date</div>
         </Container>
 
