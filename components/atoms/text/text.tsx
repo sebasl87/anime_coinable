@@ -5,7 +5,7 @@ import DivMaster from '../div-master/div-master';
 
 const Layout = styled(DivMaster) <IText>`
   flex: ${({ flex }) => flex};
-  /* color: ${({ fontColor }) => fontColor}; */
+  color: ${({ fontColor }) => fontColor};
   ${({ fontType }) => theme.textTypes[`${fontType}`]};
   text-decoration: ${({ textDecoration }) => textDecoration};
   opacity: ${({ opacity }) => opacity};
@@ -42,7 +42,7 @@ const Layout = styled(DivMaster) <IText>`
 export const Text: React.FC<IText> = ({
   children,
   display = 'flex',
-  // fontColor = `${theme.colors.secundary}`,
+  fontColor = `${theme.colors.primary}`,
   fontType,
   justifyContent = 'center',
   textTransform,
@@ -85,7 +85,7 @@ export const Text: React.FC<IText> = ({
       borderRadius={borderRadius}
       border={border}
       display={display}
-      // fontColor={fontColor}
+      fontColor={fontColor}
       justifyContent={justifyContent}
       alignItems={alignItems}
       textTransform={textTransform}

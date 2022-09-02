@@ -15,7 +15,7 @@ const Container = styled.div<HeaderContentProps>`
   justify-content: space-between;
   padding: 24px 16px 24px 16px;
   width: 100%;
-  max-width: 445px;
+  max-width: 90rem;
   margin: auto;
 `;
 
