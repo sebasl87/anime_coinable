@@ -9,29 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
-    "@mui/material": "^5.10.3",
-    "date-fns": "^2.29.2",
     "next": "12.2.5",
-    "react": "^18.2.0",
-    "react-dom": "18.2.0",
-    "tslib": "^2.4.0"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.3.0",
-    "@types/node": "^18.7.14",
     "eslint": "8.23.0",
-    "eslint-config-next": "12.2.5",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.8.2"
-  },
-  "description": "Anime Coinable challenge",
-  "main": "index.js",
-  "repository": "https://github.com/sebasl87/anime_coinable.git",
-  "author": "Sebastian R Loguzzo <Sebastian.loguzzo@gmail.com>",
-  "license": "MIT"
+    "eslint-config-next": "12.2.5"
+  }
 }
