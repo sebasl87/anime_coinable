@@ -32,6 +32,7 @@ const theme: ITheme = {
     gray: '#EEEEEE',
     gray100: '#BABABA',
     gray200: '#5A5A5A',
+    gray300: '#929292',
     background: '#f4f4ff',
     white: '#ffffff',
 
@@ -66,22 +67,23 @@ const theme: ITheme = {
       text-align: left;
 
     `,
-    'H2-w700': css`
-      font-family: Inter, sans-serif;
-      font-size: 48px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 136%;
+    'H2-w600': css`
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+
     `,
-    'H3-w700': css`
-      font-family: Inter, sans-serif;
-      font-size: 24px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 700;
-      letter-spacing: normal;
-      line-height: 44px;
+    'H3-w500': css`
+      font-family: Inter;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 15px;
+      letter-spacing: 0em;
+      text-align: left;
+
     `,
     'H3-w700-53': css`
       font-family: Inter, sans-serif;

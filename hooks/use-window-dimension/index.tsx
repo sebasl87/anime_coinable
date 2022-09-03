@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { IUseWindowDimension } from '@core-webapp/interfaces';
+import { UseWindowDimensionProps } from '@interfaces';
 
-export const useWindowDimensions = (): IUseWindowDimension => {
+export const useWindowDimensions = (): UseWindowDimensionProps => {
   const [windowDimensions, setWindowDimensions] = useState({
     width: undefined,
     height: undefined,
