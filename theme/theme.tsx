@@ -23,8 +23,6 @@ const theme: ITheme = {
     sm: '@media (max-width: 600px)',
     md: '@media (min-width: 601px)',
     ll: '@media (min-width: 905px)',
-    lg: '@media (min-width: 1240px)',
-    xl: '@media (min-width: 1921px)',
   },
   colors: {
     primary: '#000000',

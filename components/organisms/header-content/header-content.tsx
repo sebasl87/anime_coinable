@@ -6,6 +6,8 @@ import styled from '@emotion/styled';
 import { theme } from '../../../theme';
 import { useRouter } from 'next/router';
 import ChevronBack from '../../../icons/chevronBack/chevronBack';
+import { useContext } from 'react';
+import { AnimeContext } from '../../../hooks';
 
 
 const Container = styled.div<HeaderContentProps>`
@@ -35,6 +37,7 @@ const ButtonB2C = styled.div<HeaderContentProps>`
 
 export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => {
   const router = useRouter();
+  const { isMobile } = useContext(AnimeContext);
 
   // const pathMenu = router.asPath === '/cotizador';
   const pathMenu = true
@@ -46,7 +49,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => 
             Anime
           </Text>
           <InputSearch />
-          <CalendarDate />
+          <CalendarDate isMobile={isMobile} />
         </Container>
 
       ) : (

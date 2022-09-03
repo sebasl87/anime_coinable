@@ -50,6 +50,7 @@ export const Text: React.FC<IText> = ({
   margin,
   whiteSpace,
   width,
+  minWidth,
   mb,
   ml,
   mr,
@@ -112,7 +113,8 @@ export const Text: React.FC<IText> = ({
       onClick={handleClick}
       cursor={cursor}
       colorHover={colorHover}
-      flex={flex}>
+      flex={flex}
+      minWidth={minWidth}>
       {children}
     </Layout>
   );
