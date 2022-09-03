@@ -4,10 +4,11 @@ import { theme } from '@theme';
 export const ContainerCards = styled.div`
   justify-content: center;
   display: flex;
-  margin-bottom: ${theme.spaces(2)};
-  margin-left: ${theme.spaces(2)};
-  margin-right: ${theme.spaces(2)};
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 100%;
   ${theme.breakpoints.md} {
-    margin-bottom: ${theme.spaces(9)};
+    margin-bottom: 9rem;
   }
 `;

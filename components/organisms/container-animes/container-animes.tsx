@@ -1,13 +1,10 @@
-/* eslint-disable-next-line */
 import { useContext, useEffect, useState } from 'react';
 import {
-
     ContainerCards,
     RowCards,
     TableCards,
 } from '@atoms';
 import { Datum } from '@interfaces';
-import Image from 'next/image';
 import { BoxImage } from '@components/molecules';
 // import { BoxImage } from '@molecules';
 
@@ -70,30 +67,13 @@ export const ContainerAnimes: React.FC<ContainerAnimesProps> = ({ data }) => {
     return (
         <>
             <ContainerCards>
-                {/* <ContainerCard> */}
                 <TableCards>
                     {data?.map((el: Datum, index: number) => (
                         <RowCards key={index}>
                             <BoxImage image_url={el.images.webp.image_url} anime_title={el.titles[0].title} />
-                            {/* <BoxImage
-                                 backgroundColor={el.bgColor}
-                                 lazy={false}
-                                 description={el.text}
-                                 imgUrl={el.img}
-                                 title={el.name}
-                                 handleClick={() =>
-                                     router.push({
-                                         pathname: isShippingQuote
-                                             ? `/paqueterias/${el.url}/cotizador`
-                                             : `${router.asPath.split('?')[0]}/${el.url}`,
-                                         query: router.query,
-                                     })
-                                 }
-                             /> */}
                         </RowCards>
                     ))}
                 </TableCards>
-                {/* </ContainerCard> */}
             </ContainerCards>
             <div id="fetch_carriers" />
             {/* {load && (

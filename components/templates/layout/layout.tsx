@@ -7,7 +7,7 @@ import FooterContent from '@components/organisms/footer-content/footer-content';
 const Container = styled.div<LayoutProps>`
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 24px 16px 24px 16px;
   width: 100%;
   max-width: 90rem;
@@ -32,19 +32,19 @@ const ButtonB2C = styled.div<LayoutProps>`
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
-    return (
-        <>
-            <Header>
-                <HeaderContent />
-            </Header>
-            <Container>
-                {children}
-            </Container>
-            <Footer>
-                <FooterContent />
-            </Footer>
-        </>
-    )
+  return (
+    <>
+      <Header>
+        <HeaderContent />
+      </Header>
+      <Container>
+        {children}
+      </Container>
+      <Footer>
+        <FooterContent />
+      </Footer>
+    </>
+  )
 };
 
 export default Layout;

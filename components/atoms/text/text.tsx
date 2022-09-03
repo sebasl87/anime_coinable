@@ -12,7 +12,8 @@ const Layout = styled(DivMaster) <IText>`
   text-transform: ${({ textTransform }) => textTransform};
   text-align: ${({ textAlign }) => typeof textAlign === 'string' && textAlign};
   align-self: ${({ alignSelf }) => alignSelf};
-  position:${({ position }) => position};
+  position: ${({ position }) => position};
+  text-shadow: ${({ textShadow }) => textShadow};
   ${theme.breakpoints.sm} {
     ${({ fontType }) =>
     typeof fontType !== 'string' &&
@@ -33,10 +34,6 @@ const Layout = styled(DivMaster) <IText>`
     fontType?.ll &&
     theme.textTypes[`${fontType?.ll}`]};
   }
-
-  &:hover {
-    color: ${({ colorHover }) => colorHover};
-  }
 `;
 
 export const Text: React.FC<IText> = ({
@@ -44,7 +41,7 @@ export const Text: React.FC<IText> = ({
   alignSelf,
   border,
   borderRadius,
-  boxShadowHover,
+  textShadow,
   children,
   colorHover,
   cursor,
@@ -85,7 +82,7 @@ export const Text: React.FC<IText> = ({
       as={tagType}
       border={border}
       borderRadius={borderRadius}
-      boxShadowHover={boxShadowHover}
+      textShadow={textShadow}
       colorHover={colorHover}
       cursor={cursor}
       data-testid="activity-date"

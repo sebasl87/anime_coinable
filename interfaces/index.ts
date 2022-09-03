@@ -84,43 +84,43 @@ export interface IDivMaster {
   gap?: string | MediaProps;
 }
 export interface IText {
-  opacity?: number;
-  borderRadius?: number;
+  alignItems?: string | MediaProps;
+  alignSelf?: string;
   border?: string;
+  borderRadius?: number;
+  bottom?: string;
+  textShadow?: string;
   children?: React.ReactNode | string;
+  colorHover?: string;
+  cursor?: string | MediaProps;
   display?: string | MediaProps;
+  flex?: number;
   fontColor?: string;
   fontType?: string | MediaProps;
+  handleClick?: () => void;
   justifyContent?: string | MediaProps;
-  alignItems?: string | MediaProps;
-  margin?: string | MediaProps;
-  whiteSpace?: string | MediaProps;
-  bottom?: string;
   left?: string;
+  margin?: string | MediaProps;
+  minWidth?: string | MediaProps;
   mr?: number | MediaPropsInt;
   mt?: number | MediaPropsInt;
   mx?: number | MediaPropsInt;
   my?: number | MediaPropsInt;
+  opacity?: number;
   padding?: string | MediaProps;
   pb?: number | MediaPropsInt;
   pl?: number | MediaPropsInt;
+  position?: string;
   pr?: number | MediaPropsInt;
   pt?: number | MediaPropsInt;
   px?: number | MediaPropsInt;
   py?: number | MediaPropsInt;
+  tagType?: ElementType<unknown>;
   textAlign?: string | MediaProps;
   textDecoration?: string;
-  width?: string | MediaProps;
-  boxShadowHover?: string | MediaProps;
-  handleClick?: () => void;
-  cursor?: string | MediaProps;
-  colorHover?: string;
   textTransform?: string;
-  tagType?: ElementType<unknown>;
-  flex?: number;
-  alignSelf?: string;
-  minWidth?: string | MediaProps;
-  position?: string;
+  whiteSpace?: string | MediaProps;
+  width?: string | MediaProps;
 }
 
 export interface ImputSearch {

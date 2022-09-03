@@ -93,6 +93,14 @@ const theme: ITheme = {
       letter-spacing: 0em;
       text-align: left;
     `,
+    'H3-w600-16': css`
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+  `,
   } as ITextTypes,
 };
 
