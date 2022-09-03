@@ -42,6 +42,10 @@
       "@molecules/*": ["components/molecules/*"],
       "@organisms": ["components/organisms/index.ts"],
       "@organisms/*": ["components/organisms/*"],
+      "@redux": ["redux/index.ts"],
+      "@redux/*": ["redux/*"],
+      "@services": ["services/index.ts"],
+      "@services/*": ["services/*"],
       "@theme": ["theme/index.ts"],
       "@theme/*": ["theme/*"]
     }
