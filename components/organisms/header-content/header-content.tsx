@@ -3,7 +3,6 @@ import { DivMaster, Text, InputSearch, CalendarDate } from '../../index';
 
 import { HeaderContentProps } from '@interfaces';
 import styled from '@emotion/styled';
-import { theme } from '@theme';
 import { useRouter } from 'next/router';
 import ChevronBack from '@icons/chevronBack/chevronBack';
 import { useContext } from 'react';
@@ -20,39 +19,22 @@ const Container = styled.div<HeaderContentProps>`
   margin: auto;
 `;
 
-const LogoContainer = styled.div<HeaderContentProps>`
-  display: flex;
-`;
-
-const ButtonContainer = styled.div<HeaderContentProps>`
-  display: flex;
-`;
-
-const ButtonBack = styled.div<HeaderContentProps>`
-  position: absolute;
-  top: ${theme.spaces(2.875)};
-  left: ${theme.spaces(1)};
-`;
-
-export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => {
+export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathMenu }) => {
   const router = useRouter();
   const { isMobile } = useContext(AnimeContext);
 
-  // const pathMenu = router.asPath === '/cotizador';
-  const pathMenu = true
   return (
     <>
-      {pathMenu ? (
-        <Container>
-          <Text fontType="H1-w600">
-            Anime
-          </Text>
-          <InputSearch />
-          <CalendarDate isMobile={isMobile} />
-        </Container>
-
-      ) : (
-        <ButtonBack>
+      <Container>
+        {pathMenu ? (
+          <>
+            <Text fontType="H1-w600">
+              Anime
+            </Text>
+            <InputSearch />
+            <CalendarDate isMobile={isMobile} />
+          </>
+        ) : (
           <DivMaster
             ml={1}
             mt={1}
@@ -60,10 +42,13 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => 
             justifyContent="center"
             onClick={() => router.back()}
             data-testid="sarlangatest">
-            <ChevronBack />
+            <DivMaster mr={2}>
+              <ChevronBack />
+            </DivMaster>
+            <Text fontType="H3-w600-16">Go back to Main</Text>
           </DivMaster>
-        </ButtonBack>
-      )}
+        )}
+      </Container>
     </>
   )
 };

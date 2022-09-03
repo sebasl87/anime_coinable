@@ -4,6 +4,7 @@ export interface HeaderContentProps {
   handleClick?: () => void;
   isMobile?: boolean;
   historyBack?: string;
+  pathMenu?: boolean;
 }
 export interface CalendarDateProps {
   isMobile?: boolean;
@@ -143,6 +144,7 @@ export interface UseWindowDimensionProps {
 
 export interface LayoutProps {
   children?: React.ReactNode;
+  pathMenu?: boolean;
 }
 
 export interface IntegrationsTableProps {
