@@ -139,3 +139,7 @@ export interface UseWindowDimensionProps {
   width: number | undefined;
   height: number | undefined;
 }
+
+export interface LayoutProps {
+  children?: React.ReactNode;
+}
