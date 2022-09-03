@@ -1,9 +1,9 @@
 import { DivMaster, Text } from '../../index';
-
 import { HeaderContentProps } from '@interfaces';
 import styled from '@emotion/styled';
 import datos from '../../../mock.json';
 import { Score, RowDetail } from '@molecules';
+import Image from 'next/image';
 
 const Container = styled.div<HeaderContentProps>`
   align-items: center;
@@ -16,7 +16,7 @@ const Container = styled.div<HeaderContentProps>`
   flex-direction: column;
 `;
 
-const Image = styled.img`
+const ImageCheck = styled.img`
   margin-left: 2rem;
   width: 2.3rem;
 `;
@@ -46,25 +46,32 @@ export const AnimeDescription: React.FC = () => {
     return (
         <>
             <Container>
-                <DivMaster
-                    textAlign="initial"
-                    display="initial"
-                    width="100%"
-                    mb={{ sm: 1, ll: 3 }}>
-                    <Text
-                        fontType="H2-w700"
-                        mr={2}
-                        textAlign="left"
-                        alignItems="initial"
-                        width="fit-content"
-                        display="contents">
-                        {datos.data.title}
-                    </Text>
-                    <Image src="/check.svg" alt="check" />
-                </DivMaster>
-                <DivMaster display="flex" width="100%">
-                    <DivMaster>IMAGEN</DivMaster>
+                <DivMaster display="flex" width="100%" flexDirection={{ sm: "column", md: "row" }}>
+                    <DivMaster>
+                        <Image
+                            src={datos.data.images.webp.image_url}
+                            width={367}
+                            height={330}
+                            style={{ borderRadius: 10 }}
+                        />
+                    </DivMaster>
                     <DivMaster display="flex" width="100%" flexDirection="column">
+                        <DivMaster
+                            textAlign="initial"
+                            display="initial"
+                            width="100%"
+                            mb={{ sm: 1, ll: 3 }}>
+                            <Text
+                                fontType="H2-w700"
+                                mr={2}
+                                textAlign="left"
+                                alignItems="initial"
+                                width="fit-content"
+                                display="contents">
+                                {datos.data.title}
+                            </Text>
+                            <ImageCheck src="/check.svg" alt="check" />
+                        </DivMaster>
                         <TableDetails />
                         <Scores />
                     </DivMaster>
