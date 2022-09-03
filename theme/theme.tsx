@@ -76,6 +76,15 @@ const theme: ITheme = {
       text-align: left;
 
     `,
+    'H2-w700': css`
+      font-family: Inter;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: left;
+    `,
+
     'H3-w500': css`
       font-family: Inter;
       font-size: 12px;

@@ -41,7 +41,8 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathM
             display="flex"
             justifyContent="center"
             onClick={() => router.back()}
-            data-testid="sarlangatest">
+            cursor="pointer"
+          >
             <DivMaster mr={2}>
               <ChevronBack />
             </DivMaster>
