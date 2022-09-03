@@ -1,7 +1,7 @@
-import { HeaderContent, Layout } from '@components'
+
 const App = () => {
   return (
-    <Layout />
+    <p>Hola Mundo!</p>
   );
 };
 export default App;
