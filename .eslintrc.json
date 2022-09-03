@@ -1,3 +1,40 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "extends": ["plugin:prettier/recommended"],
+  "plugins": ["unused-imports"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": ["builtin", "external", "internal"],
+            "pathGroups": [
+              {
+                "pattern": "react",
+                "group": "external",
+                "position": "before"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["react"],
+            "newlines-between": "never",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "import/prefer-default-export": 0,
+        "indent": ["error", 2],
+        "eol-last": "error",
+        "template-curly-spacing": "error",
+        "no-duplicate-imports": "error",
+        "max-len": ["error", 150],
+        "no-unused-vars": "error",
+        "unused-imports/no-unused-imports": "error"
+      }
+    }
+  ]
 }

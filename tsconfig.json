@@ -1,0 +1,58 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "preserve",
+    "rootDir": ".",
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "strictNullChecks": false,
+    "baseUrl": ".",
+    "allowJs": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "paths": {
+      "@atoms": ["components/atoms/index.ts"],
+      "@atoms/*": ["components/atoms/*"],
+      "@components": ["components/index.ts"],
+      "@components/*": ["components/*"],
+      "@hooks": ["hooks/index.ts"],
+      "@hooks/*": ["hooks/*"],
+      "@icons": ["icons/index.ts"],
+      "@icons/*": ["icons/*"],
+      "@interfaces": ["interfaces/index.ts"],
+      "@interfaces/*": ["interfaces/*"],
+      "@molecules": ["components/molecules/index.ts"],
+      "@molecules/*": ["components/molecules/*"],
+      "@organisms": ["components/organisms/index.ts"],
+      "@organisms/*": ["components/organisms/*"],
+      "@theme": ["theme/index.ts"],
+      "@theme/*": ["theme/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
+}
