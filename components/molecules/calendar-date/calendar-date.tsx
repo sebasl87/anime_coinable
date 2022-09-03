@@ -1,6 +1,6 @@
-import { CalendarDateProps } from '../../../interfaces';
-import { theme } from '../../../theme';
-import { Text } from '../../atoms'
+import { CalendarDateProps } from '@interfaces';
+import { theme } from '@theme';
+import { Text } from '@atoms'
 
 import { format } from 'date-fns'
 

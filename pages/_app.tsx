@@ -1,7 +1,5 @@
-import { useIsMobileTs } from 'hooks';
-
+import { AnimeContext, useIsMobileTs } from '@hooks';
 import '../styles/globals.css'
-import { AnimeContext } from '../hooks';
 
 function CustomApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page: React.ReactNode) => page);

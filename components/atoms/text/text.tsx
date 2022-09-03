@@ -1,6 +1,6 @@
-import { IText } from '../../../interfaces';
+import { IText } from '@interfaces';
 import styled from '@emotion/styled';
-import { theme } from '../../../theme';
+import { theme } from '@theme';
 import DivMaster from '../div-master/div-master';
 
 const Layout = styled(DivMaster) <IText>`

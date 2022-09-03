@@ -26,7 +26,25 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@atoms": ["components/atoms/index.ts"],
+      "@atoms/*": ["components/atoms/*"],
+      "@components": ["components/index.ts"],
+      "@components/*": ["components/*"],
+      "@hooks": ["hooks/index.ts"],
+      "@hooks/*": ["hooks/*"],
+      "@icons": ["icons/index.ts"],
+      "@icons/*": ["icons/*"],
+      "@interfaces": ["interfaces/index.ts"],
+      "@interfaces/*": ["interfaces/*"],
+      "@molecules": ["components/molecules/index.ts"],
+      "@molecules/*": ["components/molecules/*"],
+      "@organisms": ["components/organisms/index.ts"],
+      "@organisms/*": ["components/organisms/*"],
+      "@theme": ["theme/index.ts"],
+      "@theme/*": ["theme/*"]
+    }
   },
   "exclude": [
     "node_modules",

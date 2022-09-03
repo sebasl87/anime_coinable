@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { DivMaster, Text, InputSearch, CalendarDate } from '../../index';
 
-import { HeaderContentProps } from '../../../interfaces';
+import { HeaderContentProps } from '@interfaces';
 import styled from '@emotion/styled';
-import { theme } from '../../../theme';
+import { theme } from '@theme';
 import { useRouter } from 'next/router';
-import ChevronBack from '../../../icons/chevronBack/chevronBack';
+import ChevronBack from '@icons/chevronBack/chevronBack';
 import { useContext } from 'react';
-import { AnimeContext } from '../../../hooks';
+import { AnimeContext } from '@hooks';
 
 
 const Container = styled.div<HeaderContentProps>`

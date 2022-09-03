@@ -1,8 +1,8 @@
-import { SearchEye } from '../../../icons/searchEye/searchEye';
-import { ImputSearch } from '../../../interfaces';
+import { SearchEye } from '@icons/searchEye/searchEye';
+import { ImputSearch } from '@interfaces';
 import styled from '@emotion/styled';
-import { theme } from '../../../theme';
-import { Text } from '../../atoms'
+import { theme } from '@theme';
+import { Text } from '@atoms'
 
 const ContainerInput = styled.div<{
 }>`

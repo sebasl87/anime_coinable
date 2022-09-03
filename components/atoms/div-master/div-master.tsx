@@ -1,7 +1,7 @@
-import { IDivMaster } from '../../../interfaces';
+import { IDivMaster } from '@interfaces';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { theme } from '../../../theme';
+import { theme } from '@theme';
 const { spaces } = theme;
 
 export const DivMaster = styled.div<IDivMaster>`

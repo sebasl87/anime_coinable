@@ -1,4 +1,4 @@
-import { HeaderContent } from '../components'
+import { HeaderContent } from '@components'
 const App = () => {
   return (
     <>
