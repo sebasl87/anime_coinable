@@ -327,3 +327,13 @@ export interface BoxImageProps {
   image_url: string;
   anime_title: string;
 }
+
+export interface IScore {
+  number?: number;
+  score?: string;
+}
+
+export interface IDetailsTable {
+  title?: string;
+  result?: string | number;
+}

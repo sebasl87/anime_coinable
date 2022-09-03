@@ -1,12 +1,9 @@
-import { DivMaster, Text, InputSearch, CalendarDate } from '../../index';
+import { DivMaster, Text } from '../../index';
 
 import { HeaderContentProps } from '@interfaces';
 import styled from '@emotion/styled';
-import { useRouter } from 'next/router';
-import { useContext } from 'react';
-import { AnimeContext } from '@hooks';
-import datos from '../../../mock.json'
-import CheckStatus from '@icons/checkStatus/checkStatus';
+import datos from '../../../mock.json';
+import { Score, RowDetail } from '@molecules';
 
 const Container = styled.div<HeaderContentProps>`
   align-items: center;
@@ -16,22 +13,65 @@ const Container = styled.div<HeaderContentProps>`
   width: 100%;
   /* max-width: 90rem; */
   margin: auto;
+  flex-direction: column;
 `;
 
-export const AnimeDescription: React.FC<HeaderContentProps> = ({ handleClick, pathMenu }) => {
-    const router = useRouter();
-    const { isMobile } = useContext(AnimeContext);
+const Image = styled.img`
+  margin-left: 2rem;
+  width: 2.3rem;
+`;
+
+const TableDetails = () => (
+    <DivMaster width="100%">
+        <RowDetail title="Type" result={datos.data.type} />
+        <RowDetail title="Source" result={datos.data.source} />
+        <RowDetail title="Episodes" result={datos.data.episodes} />
+        <RowDetail title="Status" result={datos.data.status} />
+    </DivMaster>
+)
+
+const Scores = () => (
+    <DivMaster
+        display="flex"
+        width="100%"
+        justifyContent="space-between"
+        mt={4}>
+        <Score number={datos.data.score} score="Score" />
+        <Score number={datos.data.rank} score="Rank" />
+        <Score number={datos.data.popularity} score="Popularity" />
+    </DivMaster>
+)
+export const AnimeDescription: React.FC = () => {
 
     return (
         <>
             <Container>
-                <Text fontType='H2-w700' mr={2}>
-                    {datos.data.title}
-                </Text>
-                <CheckStatus />
+                <DivMaster
+                    textAlign="initial"
+                    display="initial"
+                    width="100%"
+                    mb={{ sm: 1, ll: 3 }}>
+                    <Text
+                        fontType="H2-w700"
+                        mr={2}
+                        textAlign="left"
+                        alignItems="initial"
+                        width="fit-content"
+                        display="contents">
+                        {datos.data.title}
+                    </Text>
+                    <Image src="/check.svg" alt="check" />
+                </DivMaster>
+                <DivMaster display="flex" width="100%">
+                    <DivMaster>IMAGEN</DivMaster>
+                    <DivMaster display="flex" width="100%" flexDirection="column">
+                        <TableDetails />
+                        <Scores />
+                    </DivMaster>
+                </DivMaster>
             </Container>
         </>
-    )
+    );
 };
 
 export default AnimeDescription;
