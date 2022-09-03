@@ -12,7 +12,8 @@ const Layout = styled(DivMaster) <IText>`
   text-transform: ${({ textTransform }) => textTransform};
   text-align: ${({ textAlign }) => typeof textAlign === 'string' && textAlign};
   align-self: ${({ alignSelf }) => alignSelf};
-
+  position: ${({ position }) => position};
+  text-shadow: ${({ textShadow }) => textShadow};
   ${theme.breakpoints.sm} {
     ${({ fontType }) =>
     typeof fontType !== 'string' &&
@@ -33,88 +34,87 @@ const Layout = styled(DivMaster) <IText>`
     fontType?.ll &&
     theme.textTypes[`${fontType?.ll}`]};
   }
-
-  &:hover {
-    color: ${({ colorHover }) => colorHover};
-  }
 `;
 
 export const Text: React.FC<IText> = ({
+  alignItems,
+  alignSelf,
+  border,
+  borderRadius,
+  textShadow,
   children,
+  colorHover,
+  cursor,
   display = 'flex',
+  flex,
   fontColor = `${theme.colors.primary}`,
   fontType,
+  handleClick,
   justifyContent = 'center',
-  textTransform,
-  alignItems,
   margin,
-  whiteSpace,
-  width,
+  bottom,
   minWidth,
-  mb,
-  ml,
+  left,
   mr,
   mt,
   mx,
   my,
+  opacity,
   padding,
   pb,
   pl,
+  position,
   pr,
   pt,
   px,
   py,
+  tagType = 'div',
   textAlign,
   textDecoration,
-  boxShadowHover,
-  handleClick,
-  cursor,
-  colorHover,
-  border,
-  borderRadius,
-  opacity,
-  tagType = 'div',
-  flex,
-  alignSelf,
+  textTransform,
+  whiteSpace,
+  width,
 }) => {
   return typeof children === 'undefined' ? null : (
     <Layout
-      as={tagType}
-      data-testid="activity-date"
-      fontType={fontType}
-      opacity={opacity}
-      borderRadius={borderRadius}
-      border={border}
-      display={display}
-      fontColor={fontColor}
-      justifyContent={justifyContent}
       alignItems={alignItems}
-      textTransform={textTransform}
-      margin={margin}
       alignSelf={alignSelf}
-      mb={mb}
-      ml={ml}
+      as={tagType}
+      border={border}
+      borderRadius={borderRadius}
+      textShadow={textShadow}
+      colorHover={colorHover}
+      cursor={cursor}
+      data-testid="activity-date"
+      display={display}
+      flex={flex}
+      fontColor={fontColor}
+      fontType={fontType}
+      justifyContent={justifyContent}
+      margin={margin}
+      bottom={bottom}
+      minWidth={minWidth}
+      left={left}
       mr={mr}
       mt={mt}
       mx={mx}
       my={my}
+      onClick={handleClick}
+      opacity={opacity}
       padding={padding}
       pb={pb}
       pl={pl}
+      position={position}
       pr={pr}
       pt={pt}
       px={px}
       py={py}
-      width={width}
-      whiteSpace={whiteSpace}
       textAlign={textAlign}
       textDecoration={textDecoration}
-      boxShadowHover={boxShadowHover}
-      onClick={handleClick}
-      cursor={cursor}
-      colorHover={colorHover}
-      flex={flex}
-      minWidth={minWidth}>
+      textTransform={textTransform}
+      whiteSpace={whiteSpace}
+      width={width}
+    >
       {children}
     </Layout>
   );
