@@ -7,10 +7,11 @@ import { useSelector } from 'react-redux';
 
 const App = () => {
   const { getFetchData } = useAnimes();
-  const { animeList } = useSelector((state: AnimesStateProps) => state?.animes);
 
+  const { animeList } = useSelector((state: AnimesStateProps) => state?.animes);
+  // console.log(animeList.length)
   useEffect(() => {
-    if (!animeList) getFetchData();
+    if (animeList === null || animeList?.length === 0) getFetchData();
   }, []);
 
   return (
