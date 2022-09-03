@@ -85,14 +85,13 @@ const theme: ITheme = {
       text-align: left;
 
     `,
-    'H3-w700-53': css`
-      font-family: Inter, sans-serif;
-      font-size: 53px;
-      font-stretch: normal;
-      font-style: normal;
-      font-weight: 700;
-      letter-spacing: normal;
-      line-height: 52px;
+    'H3-w600': css`
+      font-family: Inter;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 39px;
+      letter-spacing: 0em;
+      text-align: left;
     `,
   } as ITextTypes,
 };

@@ -7,6 +7,8 @@ import {
     TableCards,
 } from '@atoms';
 import { Datum } from '@interfaces';
+import Image from 'next/image';
+import { BoxImage } from '@components/molecules';
 // import { BoxImage } from '@molecules';
 
 interface ContainerAnimesProps {
@@ -72,7 +74,7 @@ export const ContainerAnimes: React.FC<ContainerAnimesProps> = ({ data }) => {
                 <TableCards>
                     {data?.map((el: Datum, index: number) => (
                         <RowCards key={index}>
-                            <p>{el.images.webp.image_url}</p>
+                            <BoxImage image_url={el.images.webp.image_url} anime_title={el.titles[0].title} />
                             {/* <BoxImage
                                  backgroundColor={el.bgColor}
                                  lazy={false}

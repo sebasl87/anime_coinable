@@ -95,8 +95,8 @@ export interface IText {
   alignItems?: string | MediaProps;
   margin?: string | MediaProps;
   whiteSpace?: string | MediaProps;
-  mb?: number | MediaPropsInt;
-  ml?: number | MediaPropsInt;
+  bottom?: string;
+  left?: string;
   mr?: number | MediaPropsInt;
   mt?: number | MediaPropsInt;
   mx?: number | MediaPropsInt;
@@ -120,6 +120,7 @@ export interface IText {
   flex?: number;
   alignSelf?: string;
   minWidth?: string | MediaProps;
+  position?: string;
 }
 
 export interface ImputSearch {
@@ -318,4 +319,9 @@ export interface Items {
   count: number;
   total: number;
   per_page: number;
+}
+
+export interface BoxImageProps {
+  image_url: string;
+  anime_title: string;
 }
