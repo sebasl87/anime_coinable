@@ -12,7 +12,6 @@ import { AnimeContext } from '@hooks';
 
 const Container = styled.div<HeaderContentProps>`
   align-items: center;
-  background-color: ${theme.colors.white};
   display: flex;
   justify-content: space-between;
   padding: 24px 16px 24px 16px;
@@ -29,7 +28,7 @@ const ButtonContainer = styled.div<HeaderContentProps>`
   display: flex;
 `;
 
-const ButtonB2C = styled.div<HeaderContentProps>`
+const ButtonBack = styled.div<HeaderContentProps>`
   position: absolute;
   top: ${theme.spaces(2.875)};
   left: ${theme.spaces(1)};
@@ -53,7 +52,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => 
         </Container>
 
       ) : (
-        <ButtonB2C>
+        <ButtonBack>
           <DivMaster
             ml={1}
             mt={1}
@@ -63,7 +62,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick }) => 
             data-testid="sarlangatest">
             <ChevronBack />
           </DivMaster>
-        </ButtonB2C>
+        </ButtonBack>
       )}
     </>
   )

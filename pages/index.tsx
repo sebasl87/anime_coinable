@@ -1,17 +1,7 @@
-import { HeaderContent } from '@components'
+import { HeaderContent, Layout } from '@components'
 const App = () => {
   return (
-    <>
-      <div className="" style={{ width: '100%', borderBottom: '1px solid #DDDDDD' }}>
-
-        <HeaderContent />
-      </div>
-
-
-      <div>
-        <p>Hello World</p>
-      </div>
-    </>
+    <Layout />
   );
 };
 export default App;

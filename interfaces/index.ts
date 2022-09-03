@@ -134,3 +134,8 @@ export interface ImputSearch {
 export interface AnimeContextProps {
   isMobile: boolean;
 }
+
+export interface UseWindowDimensionProps {
+  width: number | undefined;
+  height: number | undefined;
+}
