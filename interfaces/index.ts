@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import { ElementType, MouseEventHandler } from 'react';
 
 export interface HeaderContentProps {
   handleClick?: () => void;
@@ -128,7 +128,7 @@ export interface IText {
 
 export interface ImputSearch {
   onChange?: (value: string) => void;
-  onClick?: (value: string) => void;
+  onClick?: (value: string) => void| MouseEventHandler<HTMLDivElement>;
   placeHolder?: string;
   round?: boolean;
   size?: number;
@@ -465,7 +465,6 @@ export interface Images {
 type ModalCloseType = 'normal' | 'custom-mobile' | 'custom-desktop';
 
 export interface IModalCloseButton {
-  modalCloseType: ModalCloseType;
   fClose?: () => void;
   showCloseButton?: boolean;
 }

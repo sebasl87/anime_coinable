@@ -30,9 +30,9 @@ const ModalBackground = styled.div<ModalProps>`
 const ModalContent = styled.div<ModalProps>`
   display: flex;
   flex-direction: column;
-  background-color: ${props => props.bgColorModal || '#fff'};
   z-index: 9999;
   position: relative;
+
 `;
 
 const ModalContainer = styled.div`
@@ -40,6 +40,7 @@ const ModalContainer = styled.div`
   flex-direction: column;
   top: 20%;
   max-width: 77rem;
+  width: 100%;
 `;
 
 

@@ -1,3 +1,4 @@
+export * from './autocomplete/autocomplete';
 export * from './box-image/box-image';
 export * from './calendar-date/calendar-date';
 export * from './description/description';
