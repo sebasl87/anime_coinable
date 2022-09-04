@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 
 import { theme } from '@theme';
+import { RowAnimeOption } from '@components/molecules';
 
 const ContainerInput = styled.div`
     height: 8rem;
@@ -168,7 +169,9 @@ export const Autocomplete = ({
                 />
             </ContainerInput>
             {/* {inputSearchState.display && ( */}
-            <ContainerDisplayOptions>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique ea aliquam voluptatem et aperiam a iusto, corporis nihil! Inventore sequi ullam quasi molestiae iusto? Exercitationem, consequatur qui. Voluptates illum natus modi voluptatem, ea omnis eligendi sit cupiditate blanditiis officiis dolores quo similique unde nulla assumenda perspiciatis. Ad voluptate ipsam delectus placeat praesentium qui sed velit in, id expedita quisquam quo! Fugiat recusandae nam impedit neque, fugit ullam necessitatibus consequuntur, quas totam modi odio eligendi reprehenderit expedita aspernatur maxime animi hic vitae quos consequatur itaque omnis, blanditiis enim similique! Eius officiis aliquam, corporis enim repellendus voluptatem aliquid deserunt ipsam neque laborum fugiat nostrum at pariatur? Explicabo reiciendis, rerum illo maxime officiis accusantium dolore perferendis enim illum odio quaerat deserunt eos aut hic distinctio eum soluta non repudiandae. Rem, non perspiciatis in consectetur sed soluta et autem fuga accusamus? Dolor repellat culpa quia nam distinctio suscipit obcaecati eaque voluptas sapiente dicta perferendis inventore, dolores accusamus molestias incidunt quis, voluptate delectus deleniti. Voluptatum.</ContainerDisplayOptions>
+            <ContainerDisplayOptions>
+                <RowAnimeOption />
+            </ContainerDisplayOptions>
             {/* )} */}
         </>
     );

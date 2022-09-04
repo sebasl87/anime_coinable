@@ -1,3 +1,4 @@
-export * from '../organisms/header-content/header-content';
-export * from '../organisms/container-animes/container-animes';
-export * from '../organisms/anime-description/anime-description';
+export * from './anime-description/anime-description';
+export * from './autocomplete/autocomplete';
+export * from './container-animes/container-animes';
+export * from './header-content/header-content';
