@@ -9,7 +9,7 @@ const App = () => {
   const { getFetchData } = useAnimes();
 
   const { animeList } = useSelector((state: AnimesStateProps) => state?.animes);
-  // console.log(animeList.length)
+
   useEffect(() => {
     if (animeList === null || animeList?.length === 0) getFetchData();
   }, []);

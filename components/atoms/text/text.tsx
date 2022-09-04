@@ -55,6 +55,8 @@ export const Text: React.FC<IText> = ({
   bottom,
   minWidth,
   left,
+  ml,
+  mb,
   mr,
   mt,
   mx,
@@ -95,6 +97,8 @@ export const Text: React.FC<IText> = ({
       bottom={bottom}
       minWidth={minWidth}
       left={left}
+      ml={ml}
+      mb={mb}
       mr={mr}
       mt={mt}
       mx={mx}

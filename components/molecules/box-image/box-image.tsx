@@ -29,14 +29,14 @@ export const BoxImage: React.FC<BoxImageProps> = ({
   anime_title
 }) => {
   return (
-    <DivMaster position="relative" maxWidth={{ ll: '25rem' }} cursor="pointer" onClick={() => console.log('click en imagen')}>
+    <DivMaster position="relative" maxWidth={{ ll: '25rem' }} cursor="pointer">
       <Image
         src={image_url}
         width={361}
         height={506}
         style={{ borderRadius: 10 }}
       />
-      <Text fontType={{ sm: "H3-w600", ll: "H3-w600-16" }} fontColor={theme.colors.white} position="absolute" left="2rem" bottom="1rem" textShadow='1px 1px 2px black'>
+      <Text fontType={{ sm: "H3-w600", md: "H3-w600-16" }} fontColor={theme.colors.white} position="absolute" left="2rem" bottom="1rem" textShadow='1px 1px 2px black'>
         {anime_title}
       </Text>
     </DivMaster>

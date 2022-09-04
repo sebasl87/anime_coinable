@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { theme } from '@theme';
 import { HeaderContent } from '@components';
 import FooterContent from '@components/organisms/footer-content/footer-content';
+import { useRouter } from 'next/router';
 
 const Container = styled.div<LayoutProps>`
   align-items: center;
@@ -16,31 +17,33 @@ const Container = styled.div<LayoutProps>`
 
 const Header = styled.div<LayoutProps>`
   width: 100%;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: ${props => props.pathMenu && "1px solid #DDDDDD"};
+  position: sticky;
+  top: 0;
+  background:${theme.colors.white};
+  z-index: 1;
 `;
 
 const Footer = styled.div<LayoutProps>`
   width: 100%;
   border-top: 1px solid #DDDDDD;
-`;
-
-const ButtonB2C = styled.div<LayoutProps>`
-  position: absolute;
-  top: ${theme.spaces(2.875)};
-  left: ${theme.spaces(1)};
+  display:${props => !props.pathMenu && "none"};
 `;
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const router = useRouter();
+
+  const pathMenu = router.asPath === '/';
 
   return (
     <>
-      <Header>
-        <HeaderContent />
+      <Header pathMenu={pathMenu}>
+        <HeaderContent pathMenu={pathMenu} />
       </Header>
       <Container>
         {children}
       </Container>
-      <Footer>
+      <Footer pathMenu={pathMenu}>
         <FooterContent />
       </Footer>
     </>
