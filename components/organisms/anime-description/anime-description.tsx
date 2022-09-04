@@ -1,7 +1,6 @@
 import { DivMaster, Text } from '../../index';
-import { HeaderContentProps } from '@interfaces';
+import { AnimeIDData, Data, HeaderContentProps } from '@interfaces';
 import styled from '@emotion/styled';
-import datos from '../../../mock.json';
 import { Score, RowDetail, Description } from '@molecules';
 import Image from 'next/image';
 
@@ -19,25 +18,29 @@ const ImageCheck = styled.img`
   margin-left: 2rem;
   width: 2.3rem;
 `;
+interface ContainerAnimeDescriptionProps {
+    data: Data;
+}
 
-const TableDetails = () => (
-    <DivMaster width="100%">
-        <RowDetail title="Type" result={datos.data.type} />
-        <RowDetail title="Source" result={datos.data.source} />
-        <RowDetail title="Episodes" result={datos.data.episodes} />
-        <RowDetail title="Status" result={datos.data.status} />
-    </DivMaster>
-);
+export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({ data }) => {
 
-const Scores = () => (
-    <DivMaster display="flex" width="100%" justifyContent="space-between" mt={4}>
-        <Score number={datos.data.score} score="Score" />
-        <Score number={datos.data.rank} score="Rank" />
-        <Score number={datos.data.popularity} score="Popularity" />
-    </DivMaster>
-);
+    const TableDetails = () => (
+        <DivMaster width="100%">
+            <RowDetail title="Type" result={data.type} />
+            <RowDetail title="Source" result={data.source} />
+            <RowDetail title="Episodes" result={data.episodes} />
+            <RowDetail title="Status" result={data.status} />
+        </DivMaster>
+    );
 
-export const AnimeDescription: React.FC = () => {
+    const Scores = () => (
+        <DivMaster display="flex" width="100%" justifyContent="space-between" mt={4}>
+            <Score number={data.score} score="Score" />
+            <Score number={data.rank} score="Rank" />
+            <Score number={data.popularity} score="Popularity" />
+        </DivMaster>
+    );
+
 
     return (
         <>
@@ -53,7 +56,7 @@ export const AnimeDescription: React.FC = () => {
                         maxWidth={{ sm: '100%', md: '34rem' }}
                         justifyContent="center">
                         <Image
-                            src={datos.data.images.webp.large_image_url}
+                            src={data.images.webp.large_image_url}
                             width={367}
                             height={330}
                             style={{ borderRadius: 10 }}
@@ -78,7 +81,7 @@ export const AnimeDescription: React.FC = () => {
                                 alignItems="initial"
                                 width="fit-content"
                                 display="contents">
-                                {datos.data.title}
+                                {data.title}
                             </Text>
                             <ImageCheck src="/check.svg" alt="check" />
                         </DivMaster>
@@ -86,7 +89,7 @@ export const AnimeDescription: React.FC = () => {
                         <Scores />
                     </DivMaster>
                 </DivMaster>
-                <Description synopsis={datos.data.synopsis} />
+                <Description synopsis={data.synopsis} />
             </Container>
         </>
     );

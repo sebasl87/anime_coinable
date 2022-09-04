@@ -1,14 +1,12 @@
-import { AnimeDescription, ContainerAnimes } from '@components';
-import { useAnimes } from '@hooks';
-import { AnimesStateProps } from '@interfaces';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { AnimeDescription } from '@components';
+
+import animeData from '../mock.json';
 
 
 const AnimeDetails = () => {
 
     return (
-        <AnimeDescription />
+        <AnimeDescription data={animeData.data} />
     );
 };
 export default AnimeDetails;
