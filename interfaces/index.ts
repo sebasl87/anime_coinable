@@ -128,7 +128,7 @@ export interface IText {
 
 export interface ImputSearch {
   onChange?: (value: string) => void;
-  onClick?: (value: string) => void| MouseEventHandler<HTMLDivElement>;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   placeHolder?: string;
   round?: boolean;
   size?: number;

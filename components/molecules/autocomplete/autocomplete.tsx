@@ -18,19 +18,10 @@ const ContainerInput = styled.div`
 const ContainerDisplayOptions = styled.div`
   width: 100%;
   background-color: #ffffff;
-  z-index: 1;
-  box-sizing: border-box;
-  position: absolute;
-  top: 100%;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
-  &:first-child {
-    margin-top: 8px;
-  }
-  &:last-child {
-    margin-bottom: 8px;
-  }
-  padding: 8px 0;
+  margin-top: 2rem;
+  border-radius: 4rem;
+  min-height: 15rem;
+  padding: 4rem 3rem;
 `;
 export const ContainerDisplayText = styled.div``;
 
@@ -167,24 +158,18 @@ export const Autocomplete = ({
     };
     return (
         <>
-            <ContainerInput inputText={inputSearchState.inputText}>
+            <ContainerInput>
                 <Input
                     autoComplete="off"
                     type="text"
                     placeholder="You can search for ‘Kyoukai no Kanata’ for example"
-                    // fontColorPlaceHolder={placeHolderColor}
-                    // className="search"
-                    value={inputSearchState.searchtext}
+                    // value={inputSearchState.searchtext}
                     onChange={handleChange}
-                    onClick={() => updateDisplay(inputSearchState.searchtext)}
-                    onKeyPress={(e) => e.key === 'Enter' && suggestedText(e.target.value)}
-                // id="input"
-                // data-testid="setdisplay"
                 />
             </ContainerInput>
-            {inputSearchState.display && (
-                <ContainerDisplayOptions>{getSuggestions()}</ContainerDisplayOptions>
-            )}
+            {/* {inputSearchState.display && ( */}
+            <ContainerDisplayOptions>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique ea aliquam voluptatem et aperiam a iusto, corporis nihil! Inventore sequi ullam quasi molestiae iusto? Exercitationem, consequatur qui. Voluptates illum natus modi voluptatem, ea omnis eligendi sit cupiditate blanditiis officiis dolores quo similique unde nulla assumenda perspiciatis. Ad voluptate ipsam delectus placeat praesentium qui sed velit in, id expedita quisquam quo! Fugiat recusandae nam impedit neque, fugit ullam necessitatibus consequuntur, quas totam modi odio eligendi reprehenderit expedita aspernatur maxime animi hic vitae quos consequatur itaque omnis, blanditiis enim similique! Eius officiis aliquam, corporis enim repellendus voluptatem aliquid deserunt ipsam neque laborum fugiat nostrum at pariatur? Explicabo reiciendis, rerum illo maxime officiis accusantium dolore perferendis enim illum odio quaerat deserunt eos aut hic distinctio eum soluta non repudiandae. Rem, non perspiciatis in consectetur sed soluta et autem fuga accusamus? Dolor repellat culpa quia nam distinctio suscipit obcaecati eaque voluptas sapiente dicta perferendis inventore, dolores accusamus molestias incidunt quis, voluptate delectus deleniti. Voluptatum.</ContainerDisplayOptions>
+            {/* )} */}
         </>
     );
 };

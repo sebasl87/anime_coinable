@@ -1,9 +1,8 @@
 import { MouseEvent } from 'react';
 import { ModalClose } from '@atoms';
-import { IModalCloseButton, ModalProps } from '@interfaces';
+import { ModalProps } from '@interfaces';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { theme } from '@theme';
 
 const ModalBackground = styled.div<ModalProps>`
   position: fixed;
@@ -48,7 +47,6 @@ export const Modal: React.FC<ModalProps> = ({
   children,
   fClose,
   closeOnClickAway = false,
-  modalCloseType = 'normal',
   showCloseButton = true,
   width,
   height,
@@ -64,8 +62,6 @@ export const Modal: React.FC<ModalProps> = ({
   animationDurationBg,
   pt = 3,
   center,
-  footer,
-  header,
   marginContent,
 }) => {
   const fCloseByBackground = (e: MouseEvent<HTMLDivElement>) => {
@@ -84,7 +80,6 @@ export const Modal: React.FC<ModalProps> = ({
       <ModalContainer onClick={e => e.stopPropagation()}>
         <ModalClose
           fClose={fClose}
-          modalCloseType={modalCloseType}
           showCloseButton={showCloseButton}
         />
         <ModalContent
