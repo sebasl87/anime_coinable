@@ -29,7 +29,7 @@ export const BoxImage: React.FC<BoxImageProps> = ({
   anime_title
 }) => {
   return (
-    <DivMaster position="relative" maxWidth={{ ll: '25rem' }} cursor="pointer" onClick={() => console.log('click en imagen')}>
+    <DivMaster position="relative" maxWidth={{ ll: '25rem' }} cursor="pointer">
       <Image
         src={image_url}
         width={361}

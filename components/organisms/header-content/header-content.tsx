@@ -21,7 +21,7 @@ const Container = styled.div<HeaderContentProps>`
 
 export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathMenu }) => {
   const router = useRouter();
-  // const { isMobile } = useContext(AnimeContext);
+  const { isMobile } = useContext(AnimeContext);
 
   return (
     <>
@@ -32,7 +32,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathM
               Anime
             </Text>
             <InputSearch />
-            <CalendarDate isMobile={true} />
+            <CalendarDate isMobile={isMobile} />
           </>
         ) : (
           <DivMaster

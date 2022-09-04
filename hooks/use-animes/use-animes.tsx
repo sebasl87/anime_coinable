@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux';
 import { AnyAction } from 'redux';
 import {
   getAnimesByPopularity,
-
 } from '@redux/animes/actions';
 
 export const useAnimes = () => {
