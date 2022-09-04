@@ -103,6 +103,8 @@ export interface IText {
   left?: string;
   margin?: string | MediaProps;
   minWidth?: string | MediaProps;
+  mb?: number | MediaPropsInt;
+  ml?: number | MediaPropsInt;
   mr?: number | MediaPropsInt;
   mt?: number | MediaPropsInt;
   mx?: number | MediaPropsInt;
@@ -413,7 +415,7 @@ export interface Broadcast {
 
 export interface Demographic {
   mal_id: number;
-  type:   Type;
+  type:   DemographicType;
   name:   string;
   url:    string;
 }
