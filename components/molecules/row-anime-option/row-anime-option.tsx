@@ -1,18 +1,33 @@
 import { DivMaster, Text } from "@atoms";
+import styled from "@emotion/styled";
 import ChevronRight from "@icons/chevronRight/chevronRight";
-import { IScore } from "@interfaces";
+import { Datum } from "@interfaces";
 import { theme } from '@theme';
 import Image from "next/image";
 
-export const RowAnimeOption: React.FC<IScore> = ({ number, score }) => {
+interface RowAnimeProps {
+    optAnime?: Datum;
+    handleClick: () => void;
+}
+const ContainerRow = styled(DivMaster)`
+    margin-bottom: 3rem;
+    &:last-child{
+        margin-bottom:0;
+}
+`;
+
+export const RowAnimeOption: React.FC<RowAnimeProps> = ({ optAnime, handleClick }) => {
     return (
-        <DivMaster
+        <ContainerRow
             display="flex"
             width="100%"
             flexDirection="row"
-            alignItems="center">
+            alignItems="center"
+            onClick={handleClick}
+            cursor="pointer"
+        >
             <Image
-                src="https://cdn.myanimelist.net/images/anime/11/48721t.webp"
+                src={optAnime.images.webp.small_image_url}
                 width={50}
                 height={50}
                 style={{ borderRadius: '5px' }}
@@ -23,7 +38,7 @@ export const RowAnimeOption: React.FC<IScore> = ({ number, score }) => {
                 ml={2}
             >
                 <Text fontType="H3-w500-16" display="flex" width="100%" justifyContent="flex-start">
-                    Shingeki no Kyojin: Attack on Skytree
+                    {optAnime.title}
                 </Text>
                 <Text
                     fontType="H1-w500"
@@ -31,11 +46,11 @@ export const RowAnimeOption: React.FC<IScore> = ({ number, score }) => {
                     display="flex"
                     width="100%"
                     justifyContent="flex-start">
-                    Movie · 1 Episode · Complete
+                    {optAnime.type} · {optAnime.episodes} Episodes · {optAnime.status}
                 </Text>
             </DivMaster>
             <ChevronRight />
-        </DivMaster>
+        </ContainerRow>
     );
 };
 export default RowAnimeOption;

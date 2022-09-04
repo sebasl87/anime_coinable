@@ -1,10 +1,11 @@
-/* eslint-disable no-shadow */
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import styled from '@emotion/styled';
 
 import { theme } from '@theme';
 import { RowAnimeOption } from '@components/molecules';
+import { useRouter } from 'next/router';
+import { AutocompleProps } from '@interfaces';
 
 const ContainerInput = styled.div`
     height: 8rem;
@@ -58,25 +59,12 @@ const Input = styled.input`
   }
   `;
 
-export const Autocomplete = ({
-    options,
-    placeHolder = 'algo',
-    fontWeightTextNormal,
-    fontColorTextNormal,
-    fontWeightTextMark,
-    fontColorTextMark,
-    fontWeightTextNoMatch,
-    fontColorTextNoMatch,
-    noMatchText,
-    handleCancel,
-    idMovement,
-    placeHolderColor,
-    handleCleanFilterSearch,
-    limitRenderOptions = 5,
-    matchOption: matchOptionProps,
+export const Autocomplete: React.FC<AutocompleProps> = ({
     value,
+    fClose,
+    data
 }) => {
-    const wrapperRef = useRef(null);
+    const router = useRouter();
     const [inputSearchState, setInputSearchState] = useState({
         searchtext: value || '',
         suggest: [],
@@ -91,72 +79,21 @@ export const Autocomplete = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
 
-    const matchOption = (option, labelSearch) => {
-        if (matchOptionProps) {
-            return matchOptionProps(option, labelSearch);
-        }
-        return option.toLowerCase().includes(labelSearch.toLowerCase());
-    };
-
-    const updateDisplay = (labelSearch) => {
-        // if (labelSearch?.length > 2 && !!options) {
-        //     const suggestion = options
-        //         .filter((e) => matchOption(e, labelSearch))
-        //         .slice(0, limitRenderOptions);
-        //     setInputSearchState({
-        //         // resfound: suggestion.length !== 0,
-        //         // suggest: suggestion,
-        //         // display: true,
-        //         // searchtext: labelSearch,
-        //     });
-        // } else {
-        //     setInputSearchState({
-        //         ...inputSearchState,
-        //         suggest: [],
-        //         display: false,
-        //         searchtext: labelSearch,
-        //     });
-        // }
-    };
-
     const handleChange = (e) => {
         const searchval = e.target.value;
 
         const isEmptySearch = searchval === '';
         if (!isEmptySearch) {
             setInputSearchState({ ...inputSearchState, searchtext: searchval, inputText: true });
-            updateDisplay(searchval);
         }
     };
 
-    const getSuggestions = () => {
-        if (
-            inputSearchState?.suggest?.length === 0 &&
-            inputSearchState?.searchtext !== '' &&
-            !inputSearchState?.resfound
-        ) {
-            return (
-                noMatchText && (
-                    <NoMatch
-                    >
-                        {noMatchText}
-                    </NoMatch>
-                )
-            );
-        }
-
-        return (
-            <>
-                {inputSearchState?.suggest?.map((item, index) => (
-                    <Match
-                        key={index}
-                    // onClick={() => suggestedText(item)}
-                    >
-                    </Match>
-                ))}
-            </>
-        );
-    };
+    const selectAndClose = (id) => {
+        fClose();
+        router.push({
+            pathname: `/anime/${id}`,
+        });
+    }
     return (
         <>
             <ContainerInput>
@@ -164,15 +101,15 @@ export const Autocomplete = ({
                     autoComplete="off"
                     type="text"
                     placeholder="You can search for ‘Kyoukai no Kanata’ for example"
-                    // value={inputSearchState.searchtext}
                     onChange={handleChange}
                 />
             </ContainerInput>
-            {/* {inputSearchState.display && ( */}
             <ContainerDisplayOptions>
-                <RowAnimeOption />
+                {data.map(opt => (
+                    <RowAnimeOption key={opt.mal_id} optAnime={opt} handleClick={() => { selectAndClose(opt.mal_id) }} />
+
+                ))}
             </ContainerDisplayOptions>
-            {/* )} */}
         </>
     );
 };

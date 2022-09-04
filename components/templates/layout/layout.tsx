@@ -6,6 +6,7 @@ import FooterContent from '@components/organisms/footer-content/footer-content';
 import { useRouter } from 'next/router';
 
 import { useState } from 'react';
+import optionsToMap from '../../../mock.json';
 
 
 const Container = styled.div<LayoutProps>`
@@ -51,7 +52,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <FooterContent />
       </Footer>
       {openModal && <Modal fClose={() => setOpenModal(false)} backgroundColor="#00000099">
-        <Autocomplete />
+        <Autocomplete fClose={() => setOpenModal(false)} data={optionsToMap.data} />
       </Modal>}
     </>
   )
