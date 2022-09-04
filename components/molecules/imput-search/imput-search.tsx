@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { theme } from '@theme';
 import { Text } from '@atoms'
 
+
 const ContainerInput = styled.div<{
 }>`
   align-items: center;
@@ -23,14 +24,18 @@ const ContainerInput = styled.div<{
 
 export const InputSearch: React.FC<ImputSearch> = ({
   placeHolder = 'Search...',
+  onClick
 }) => {
   return (
-    <ContainerInput onClick={() => { console.log('Open modal') }}>
-      <SearchEye />
-      <Text fontType="H1-w400" fontColor={theme.colors.gray100} ml={1}>
-        {placeHolder}
-      </Text>
-    </ContainerInput>
+    <>
+      <ContainerInput onClick={onClick}>
+        <SearchEye />
+        <Text fontType="H1-w400" fontColor={theme.colors.gray100} ml={1}>
+          {placeHolder}
+        </Text>
+      </ContainerInput>
+
+    </>
   );
 };
 export default InputSearch;

@@ -128,6 +128,7 @@ export interface IText {
 
 export interface ImputSearch {
   onChange?: (value: string) => void;
+  onClick?: (value: string) => void;
   placeHolder?: string;
   round?: boolean;
   size?: number;
@@ -459,4 +460,39 @@ export interface Images {
   medium_image_url:  string;
   large_image_url:   string;
   maximum_image_url: string;
+}
+
+type ModalCloseType = 'normal' | 'custom-mobile' | 'custom-desktop';
+
+export interface IModalCloseButton {
+  modalCloseType: ModalCloseType;
+  fClose?: () => void;
+  showCloseButton?: boolean;
+}
+
+export interface ModalProps {
+  backgroundColor?: string;
+  animationDurationBg?: string;
+  width?: string;
+  height?: string;
+  minWidth?: string;
+  minHeight?: string;
+  borderRadius?: string;
+  boxShadow?: string;
+  bgColorModal?: string;
+  borderColor?: string;
+  fClose?: () => void;
+  showCloseButton?: boolean;
+  children?: React.ReactNode;
+  maxWidth?: string | MediaProps;
+  maxHeight?: string;
+  pt?: number;
+  center?: boolean;
+  footer?: React.ReactNode;
+  header?: React.ReactNode;
+  closeColor?: string;
+  modalCloseType?: ModalCloseType;
+  closeOnClickAway?: boolean;
+  margin?: string;
+  marginContent?: string;
 }
