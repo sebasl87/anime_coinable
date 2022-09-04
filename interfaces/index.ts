@@ -337,3 +337,7 @@ export interface IDetailsTable {
   title?: string;
   result?: string | number;
 }
+
+export interface IDescription {
+  synopsis?: string;
+}

@@ -36,7 +36,7 @@ export const BoxImage: React.FC<BoxImageProps> = ({
         height={506}
         style={{ borderRadius: 10 }}
       />
-      <Text fontType={{ sm: "H3-w600", ll: "H3-w600-16" }} fontColor={theme.colors.white} position="absolute" left="2rem" bottom="1rem" textShadow='1px 1px 2px black'>
+      <Text fontType={{ sm: "H3-w600", md: "H3-w600-16" }} fontColor={theme.colors.white} position="absolute" left="2rem" bottom="1rem" textShadow='1px 1px 2px black'>
         {anime_title}
       </Text>
     </DivMaster>
