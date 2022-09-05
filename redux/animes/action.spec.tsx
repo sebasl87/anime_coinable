@@ -11,10 +11,35 @@ describe('animes actions', () => {
     expect(actions.fetchAnimes()).toEqual(expectedAction);
   });
 
-  it('successFetchAnimes', () => {
+  it('successFetchAnimesData', () => {
     const expectedAction = {
-      type: animesTypes.SUCCESS_FETCH_ANIMES,
+      type: animesTypes.SUCCESS_FETCH_ANIMES_DATA,
+      payload: {},
     };
-    expect(actions.successFetchAnimes({})).toEqual(expectedAction);
+    expect(actions.successFetchAnimesData({})).toEqual(expectedAction);
+  });
+
+  it('successFetchAnimesPagination', () => {
+    const expectedAction = {
+      type: animesTypes.SUCCESS_FETCH_ANIMES_PAGINATION,
+      payload: {},
+    };
+    expect(actions.successFetchAnimesPagination({})).toEqual(expectedAction);
+  });
+
+  it('successFetchAnimesLinks', () => {
+    const expectedAction = {
+      type: animesTypes.SUCCESS_FETCH_ANIMES_LINKS,
+      payload: {},
+    };
+    expect(actions.successFetchAnimesLinks({})).toEqual(expectedAction);
+  });
+
+  it('successFetchSearchAnimesData', () => {
+    const expectedAction = {
+      type: animesTypes.SUCCESS_FETCH_SEARCH_ANIMES_DATA,
+      payload: {},
+    };
+    expect(actions.successFetchSearchAnimesData({})).toEqual(expectedAction);
   });
 });
