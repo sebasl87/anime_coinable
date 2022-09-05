@@ -1,9 +1,6 @@
-import { useState, useEffect } from 'react';
-
 import styled from '@emotion/styled';
 
-import { theme } from '@theme';
-import { RowAnimeOption } from '@components/molecules';
+import { RowAnimeOption, Text } from '@components';
 import { useRouter } from 'next/router';
 import { AutocompleProps } from '@interfaces';
 
@@ -14,7 +11,6 @@ const ContainerInput = styled.div`
     max-width: 77rem;
     border-radius: 4rem;
     background-color: #ffffff;
-
 `;
 
 const ContainerDisplayOptions = styled.div`
@@ -24,20 +20,11 @@ const ContainerDisplayOptions = styled.div`
   border-radius: 4rem;
   min-height: 15rem;
   padding: 4rem 3rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 `;
-export const ContainerDisplayText = styled.div``;
-
-export const Match = styled(ContainerDisplayText)`
-  cursor: pointer;
-  &:hover {
-    background-color: ${theme.colors.gray200};
-  }
-`;
-
-export const NoMatch = styled(ContainerDisplayText)`
-  font-weight: 700;
-  cursor: default;
-`;
+export const NoMatch = styled.div``;
 
 const Input = styled.input`
     background-color: transparent;
@@ -67,22 +54,6 @@ export const Autocomplete: React.FC<AutocompleProps> = ({
 }) => {
     const router = useRouter();
 
-    const [inputSearchState, setInputSearchState] = useState({
-        searchtext: value || '',
-        suggest: [],
-        resfound: true,
-        inputText: false,
-        display: false,
-    });
-
-    useEffect(() => {
-        setInputSearchState({ ...inputSearchState, searchtext: value });
-        if (!value || value === '') setInputSearchState({ ...inputSearchState, inputText: false });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [value]);
-
-
-
     const selectAndClose = (id) => {
         fClose();
         router.push({
@@ -99,12 +70,17 @@ export const Autocomplete: React.FC<AutocompleProps> = ({
                     onChange={handleChange}
                 />
             </ContainerInput>
-            <ContainerDisplayOptions>
-                {data?.map(opt => (
-                    <RowAnimeOption key={opt.mal_id} optAnime={opt} handleClick={() => { selectAndClose(opt.mal_id) }} />
+            {value.length > 2 &&
+                <ContainerDisplayOptions>
+                    {data?.length > 0 ? data?.map(opt => (
+                        <RowAnimeOption key={opt.mal_id} optAnime={opt} handleClick={() => { selectAndClose(opt.mal_id) }} />
 
-                ))}
-            </ContainerDisplayOptions>
+                    )) : <Text fontType="H3-w500-16" width="100%" justifyContent="center">
+                        Oops it seems there is nothing for ‘{value}’
+                    </Text>
+                    }
+                </ContainerDisplayOptions>
+            }
         </>
     );
 };

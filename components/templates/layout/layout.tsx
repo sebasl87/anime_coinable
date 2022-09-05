@@ -42,12 +42,13 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const pathMenu = router.asPath === '/';
   const [openModal, setOpenModal] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    const searchvalue = e.target.value;
-    searchvalue.length >= 3 &&
-      dispatch(getAnimesBySearch(searchvalue) as unknown as AnyAction);
+    setSearchValue(e.target.value);
+    searchValue?.length >= 3 &&
+      dispatch(getAnimesBySearch(searchValue) as unknown as AnyAction);
   };
   const { animeSearchListed } = useSelector((state: AnimesStateProps) => state?.animes);
 
@@ -63,7 +64,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <FooterContent />
       </Footer>
       {openModal && <Modal fClose={() => setOpenModal(false)} backgroundColor="#00000099">
-        <Autocomplete handleChange={handleChange} fClose={() => setOpenModal(false)} data={animeSearchListed} />
+        <Autocomplete handleChange={handleChange} fClose={() => setOpenModal(false)} data={animeSearchListed} value={searchValue} />
       </Modal>}
     </>
   )

@@ -40,11 +40,9 @@ export const getAnimesByPopularity =
       .then(resp => dispatch(successFetchAnimesLinks(resp?.links)));
   };
 
-  export const getAnimesBySearch =
-  (valueToSearch) =>
-  dispatch => {
-    dispatch(fetchSearchAnimes);
-    animesServices
-      .fetchSearchAnimes(valueToSearch)
-      .then(resp => dispatch(successFetchSearchAnimesData(resp?.data)));
-  };
+export const getAnimesBySearch = valueToSearch => dispatch => {
+  dispatch(fetchSearchAnimes);
+  animesServices
+    .fetchSearchAnimes(valueToSearch)
+    .then(resp => dispatch(successFetchSearchAnimesData(resp?.data)));
+};
