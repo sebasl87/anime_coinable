@@ -6,6 +6,9 @@ import { theme } from '@theme';
 import { RowAnimeOption } from '@components/molecules';
 import { useRouter } from 'next/router';
 import { AutocompleProps } from '@interfaces';
+import { useDispatch } from 'react-redux';
+import { getAnimesBySearch } from '@redux/animes/actions';
+import { AnyAction } from 'redux';
 
 const ContainerInput = styled.div`
     height: 8rem;
@@ -62,9 +65,12 @@ const Input = styled.input`
 export const Autocomplete: React.FC<AutocompleProps> = ({
     value,
     fClose,
-    data
+    data,
+    // handleChange
 }) => {
     const router = useRouter();
+    const dispatch = useDispatch();
+
     const [inputSearchState, setInputSearchState] = useState({
         searchtext: value || '',
         suggest: [],
@@ -80,12 +86,9 @@ export const Autocomplete: React.FC<AutocompleProps> = ({
     }, [value]);
 
     const handleChange = (e) => {
-        const searchval = e.target.value;
-
-        const isEmptySearch = searchval === '';
-        if (!isEmptySearch) {
-            setInputSearchState({ ...inputSearchState, searchtext: searchval, inputText: true });
-        }
+        const searchvalue = e.target.value;
+        searchvalue.length >= 3 &&
+            dispatch(getAnimesBySearch(searchvalue) as unknown as AnyAction);
     };
 
     const selectAndClose = (id) => {

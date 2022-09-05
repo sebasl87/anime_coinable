@@ -501,4 +501,5 @@ export interface AutocompleProps {
   fClose?: () => void;
   data?: Datum[];
   pagination?: Pagination;
+  handleChange?: () => void;
 }
