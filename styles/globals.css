@@ -1,4 +1,7 @@
-html,
+html {
+  font-size: 8px;
+  scroll-behavior: smooth;
+}
 body {
   padding: 0;
   margin: 0;
