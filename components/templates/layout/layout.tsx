@@ -1,4 +1,4 @@
-import { LayoutProps } from '@interfaces';
+import { AnimesStateProps, LayoutProps } from '@interfaces';
 import styled from '@emotion/styled';
 import { theme } from '@theme';
 import { HeaderContent, Modal, Autocomplete } from '@components';
@@ -6,7 +6,10 @@ import FooterContent from '@components/organisms/footer-content/footer-content';
 import { useRouter } from 'next/router';
 
 import { useState } from 'react';
-import optionsToMap from '../../../mock.json';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getAnimesBySearch } from '@redux/animes/actions';
+import { AnyAction } from 'redux';
 
 
 const Container = styled.div<LayoutProps>`
@@ -39,6 +42,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   const pathMenu = router.asPath === '/';
   const [openModal, setOpenModal] = useState(false)
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const searchvalue = e.target.value;
+    searchvalue.length >= 3 &&
+      dispatch(getAnimesBySearch(searchvalue) as unknown as AnyAction);
+  };
+  const { animeSearchListed } = useSelector((state: AnimesStateProps) => state?.animes);
 
   return (
     <>
@@ -52,7 +63,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <FooterContent />
       </Footer>
       {openModal && <Modal fClose={() => setOpenModal(false)} backgroundColor="#00000099">
-        <Autocomplete fClose={() => setOpenModal(false)} data={optionsToMap.data} />
+        <Autocomplete handleChange={handleChange} fClose={() => setOpenModal(false)} data={animeSearchListed} />
       </Modal>}
     </>
   )

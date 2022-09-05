@@ -155,7 +155,7 @@ export interface IntegrationsTableProps {
 }
 
 export interface AnimesStateProps {
-  animes: { animeList: Datum[] };
+  animes: { animeList: Datum[], animeSearchListed: Datum[] };
 }
 export interface AnimesProps {
   pagination: Pagination;
@@ -499,7 +499,7 @@ export interface ModalProps {
 export interface AutocompleProps {
   value?: string;
   fClose?: () => void;
-  data?: Datum[];
+  data?: any;
   pagination?: Pagination;
-  handleChange?: () => void;
+  handleChange?: (e:never) => void;
 }

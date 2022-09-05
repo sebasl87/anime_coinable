@@ -6,9 +6,6 @@ import { theme } from '@theme';
 import { RowAnimeOption } from '@components/molecules';
 import { useRouter } from 'next/router';
 import { AutocompleProps } from '@interfaces';
-import { useDispatch } from 'react-redux';
-import { getAnimesBySearch } from '@redux/animes/actions';
-import { AnyAction } from 'redux';
 
 const ContainerInput = styled.div`
     height: 8rem;
@@ -66,10 +63,9 @@ export const Autocomplete: React.FC<AutocompleProps> = ({
     value,
     fClose,
     data,
-    // handleChange
+    handleChange
 }) => {
     const router = useRouter();
-    const dispatch = useDispatch();
 
     const [inputSearchState, setInputSearchState] = useState({
         searchtext: value || '',
@@ -85,11 +81,7 @@ export const Autocomplete: React.FC<AutocompleProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
 
-    const handleChange = (e) => {
-        const searchvalue = e.target.value;
-        searchvalue.length >= 3 &&
-            dispatch(getAnimesBySearch(searchvalue) as unknown as AnyAction);
-    };
+
 
     const selectAndClose = (id) => {
         fClose();
@@ -108,7 +100,7 @@ export const Autocomplete: React.FC<AutocompleProps> = ({
                 />
             </ContainerInput>
             <ContainerDisplayOptions>
-                {data.map(opt => (
+                {data?.map(opt => (
                     <RowAnimeOption key={opt.mal_id} optAnime={opt} handleClick={() => { selectAndClose(opt.mal_id) }} />
 
                 ))}
