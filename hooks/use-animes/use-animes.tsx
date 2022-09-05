@@ -7,9 +7,8 @@ import {
 export const useAnimes = () => {
   const dispatch = useDispatch();
 
-  const getFetchData = (page?: number) => {
+  const getFetchData = (page?: number) =>
     dispatch(getAnimesByPopularity(page | 1) as unknown as AnyAction);
-  };
 
   return {
     getFetchData,

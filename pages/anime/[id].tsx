@@ -8,7 +8,7 @@ const AnimeDetails = ({ animeData }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await fetch('https://api.jikan.moe/v4/top/anime?limit=1000');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_JIKAN_SERVICE}/top/anime?limit=1000`);
     const totalAnimesdata = await res.json()
 
     return {
@@ -19,7 +19,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_JIKAN_SERVICE}/anime/${id}/full`);
     const animeData = await res.json();
 
     return {
