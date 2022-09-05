@@ -387,6 +387,7 @@ export interface Data {
   relations: Relation[];
   theme: Theme;
   external: External[];
+  approved?: boolean;
 }
 
 export interface Aired {

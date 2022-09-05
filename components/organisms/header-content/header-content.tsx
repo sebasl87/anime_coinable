@@ -16,7 +16,10 @@ const Container = styled.div<HeaderContentProps>`
   margin: auto;
 `;
 
-export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathMenu }) => {
+export const HeaderContent: React.FC<HeaderContentProps> = ({
+  handleClick,
+  pathMenu,
+}) => {
   const router = useRouter();
   const { isMobile } = useContext(AnimeContext);
 
@@ -25,10 +28,8 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathM
       <Container>
         {pathMenu ? (
           <>
-            <Text fontType="H1-w600">
-              Anime
-            </Text>
-            <InputSearch onClick={handleClick} />
+            <Text fontType="H1-w600">Anime</Text>
+            <InputSearch onClick={handleClick} data-testid="header-content" />
             <CalendarDate isMobile={isMobile} />
           </>
         ) : (
@@ -38,8 +39,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathM
             display="flex"
             justifyContent="center"
             onClick={() => router.back()}
-            cursor="pointer"
-          >
+            cursor="pointer">
             <DivMaster mr={2}>
               <ChevronBack />
             </DivMaster>
@@ -48,7 +48,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathM
         )}
       </Container>
     </>
-  )
+  );
 };
 
 export default HeaderContent;

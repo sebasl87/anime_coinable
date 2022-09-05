@@ -19,80 +19,84 @@ const ImageCheck = styled.img`
   width: 2.3rem;
 `;
 interface ContainerAnimeDescriptionProps {
-    data: Data;
+  data: Data;
 }
 
-export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({ data }) => {
+export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({
+  data,
+}) => {
+  const TableDetails = () => (
+    <DivMaster width="100%">
+      <RowDetail title="Type" result={data?.type} />
+      <RowDetail title="Source" result={data?.source} />
+      <RowDetail title="Episodes" result={data?.episodes} />
+      <RowDetail title="Status" result={data?.status} />
+    </DivMaster>
+  );
 
-    const TableDetails = () => (
-        <DivMaster width="100%">
-            <RowDetail title="Type" result={data?.type} />
-            <RowDetail title="Source" result={data?.source} />
-            <RowDetail title="Episodes" result={data?.episodes} />
-            <RowDetail title="Status" result={data?.status} />
+  const Scores = () => (
+    <DivMaster
+      display="flex"
+      width="100%"
+      justifyContent="space-between"
+      mt={{ sm: 4, md: 7 }}>
+      <Score number={data?.score} score="Score" />
+      <Score number={data?.rank} score="Rank" />
+      <Score number={data?.popularity} score="Popularity" />
+    </DivMaster>
+  );
+
+  return (
+    <>
+      <Container>
+        <DivMaster
+          display="flex"
+          width="100%"
+          flexDirection={{ sm: 'column', md: 'row' }}>
+          <DivMaster
+            display="flex"
+            width="100%"
+            height="100%"
+            maxWidth={{ sm: '100%', md: '34rem' }}
+            justifyContent="center">
+            <Image
+              src={data?.images?.webp?.large_image_url}
+              width={367}
+              height={330}
+              style={{ borderRadius: 10 }}
+              layout="fixed"
+            />
+          </DivMaster>
+          <DivMaster
+            display="flex"
+            width="100%"
+            flexDirection="column"
+            ml={{ sm: 0, md: 2 }}>
+            <DivMaster
+              textAlign="initial"
+              display="initial"
+              width="100%"
+              mb={{ sm: 1, md: 3 }}
+              mt={{ sm: 2, ll: 0 }}>
+              <Text
+                fontType="H2-w700"
+                mr={2}
+                textAlign="left"
+                alignItems="initial"
+                width="fit-content"
+                display="contents">
+                {data?.title}
+              </Text>
+              {data?.approved && <ImageCheck src="/check.svg" alt="check" />}
+            </DivMaster>
+            <TableDetails />
+            <Scores />
+          </DivMaster>
         </DivMaster>
-    );
-
-    const Scores = () => (
-        <DivMaster display="flex" width="100%" justifyContent="space-between" mt={{ sm: 4, md: 7 }}>
-            <Score number={data?.score} score="Score" />
-            <Score number={data?.rank} score="Rank" />
-            <Score number={data?.popularity} score="Popularity" />
-        </DivMaster>
-    );
-
-
-    return (
-        <>
-            <Container>
-                <DivMaster
-                    display="flex"
-                    width="100%"
-                    flexDirection={{ sm: 'column', md: 'row' }}>
-                    <DivMaster
-                        display="flex"
-                        width="100%"
-                        height="100%"
-                        maxWidth={{ sm: '100%', md: '34rem' }}
-                        justifyContent="center">
-                        <Image
-                            src={data?.images?.webp?.large_image_url}
-                            width={367}
-                            height={330}
-                            style={{ borderRadius: 10 }}
-                            layout='fixed'
-                        />
-                    </DivMaster>
-                    <DivMaster
-                        display="flex"
-                        width="100%"
-                        flexDirection="column"
-                        ml={{ sm: 0, md: 2 }}>
-                        <DivMaster
-                            textAlign="initial"
-                            display="initial"
-                            width="100%"
-                            mb={{ sm: 1, md: 3 }}
-                            mt={{ sm: 2, ll: 0 }}>
-                            <Text
-                                fontType="H2-w700"
-                                mr={2}
-                                textAlign="left"
-                                alignItems="initial"
-                                width="fit-content"
-                                display="contents">
-                                {data?.title}
-                            </Text>
-                            <ImageCheck src="/check.svg" alt="check" />
-                        </DivMaster>
-                        <TableDetails />
-                        <Scores />
-                    </DivMaster>
-                </DivMaster>
-                <Description synopsis={data?.synopsis} />
-            </Container>
-        </>
-    );
+        <Description synopsis={data?.synopsis} />
+      </Container>
+    </>
+  );
 };
 
 export default AnimeDescription;

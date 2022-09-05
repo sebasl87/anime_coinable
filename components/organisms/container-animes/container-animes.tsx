@@ -4,7 +4,7 @@ import {
     TableCards,
 } from '@atoms';
 import { Datum } from '@interfaces';
-import { BoxImage } from '@components/molecules';
+import { BoxImage } from '@molecules';
 import { useRouter } from 'next/router';
 
 interface ContainerAnimesProps {
