@@ -8,7 +8,6 @@ import { AnimesStateProps, LayoutProps } from '@interfaces';
 import { theme } from '@theme';
 import { HeaderContent, Modal, Autocomplete, FooterContent } from '@components';
 
-
 const Container = styled.div<LayoutProps>`
   align-items: center;
   display: flex;
@@ -21,50 +20,60 @@ const Container = styled.div<LayoutProps>`
 
 const Header = styled.div<LayoutProps>`
   width: 100%;
-  border-bottom: ${props => props.pathMenu && "1px solid #DDDDDD"};
+  border-bottom: ${props => props.pathMenu && '1px solid #DDDDDD'};
   position: sticky;
   top: 0;
-  background:${theme.colors.white};
+  background: ${theme.colors.white};
   z-index: 1;
 `;
 
 const Footer = styled.div<LayoutProps>`
   width: 100%;
-  border-top: 1px solid #DDDDDD;
-  display:${props => !props.pathMenu && "none"};
+  border-top: 1px solid #dddddd;
+  display: ${props => !props.pathMenu && 'none'};
 `;
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
 
   const pathMenu = router.asPath === '/';
-  const [openModal, setOpenModal] = useState(false)
-  const [searchValue, setSearchValue] = useState('')
+  const [openModal, setOpenModal] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setSearchValue(e.target.value);
     searchValue?.length >= 3 &&
       dispatch(getAnimesBySearch(searchValue) as unknown as AnyAction);
   };
-  const { animeSearchListed } = useSelector((state: AnimesStateProps) => state?.animes);
+  const { animeSearchListed } = useSelector(
+    (state: AnimesStateProps) => state?.animes
+  );
 
   return (
     <>
       <Header pathMenu={pathMenu}>
-        <HeaderContent pathMenu={pathMenu} handleClick={() => setOpenModal(true)} />
+        <HeaderContent
+          pathMenu={pathMenu}
+          handleClick={() => setOpenModal(true)}
+        />
       </Header>
-      <Container>
-        {children}
-      </Container>
+      <Container>{children}</Container>
       <Footer pathMenu={pathMenu}>
         <FooterContent />
       </Footer>
-      {openModal && <Modal fClose={() => setOpenModal(false)} backgroundColor="#00000099">
-        <Autocomplete handleChange={handleChange} fClose={() => setOpenModal(false)} data={animeSearchListed} value={searchValue} />
-      </Modal>}
+      {openModal && (
+        <Modal fClose={() => setOpenModal(false)} backgroundColor="#00000099">
+          <Autocomplete
+            handleChange={handleChange}
+            fClose={() => setOpenModal(false)}
+            data={animeSearchListed}
+            value={searchValue}
+          />
+        </Modal>
+      )}
     </>
-  )
+  );
 };
 
 export default Layout;

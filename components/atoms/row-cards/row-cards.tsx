@@ -7,5 +7,7 @@ export const RowCards = styled.div<IntegrationsTableProps>`
   flex-grow: 1;
   width: 100%;
   justify-content: center;
-  margin-bottom: ${props => props.integrationsAlign && '16px'};
+  margin-bottom: ${props => props.integrationsAlign && '2rem'};
 `;
+
+export default RowCards;
