@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import * as animesTypes from './actionTypes';
 import reducer, { initialState } from './index';
 
@@ -16,14 +15,15 @@ describe('common reducer', () => {
   it('should set animes to data', () => {
     expect(
       reducer(
-        { ...initialState, animes: data },
+        { ...initialState},
         {
-          type: animesTypes.SUCCESS_FETCH_ANIMES,
+          type: animesTypes.SUCCESS_FETCH_ANIMES_DATA,
+          payload: "data_from_fetch"
         }
       )
     ).toEqual({
       ...initialState,
-      animes: data,
+      animeList: "data_from_fetch"
     });
   });
 });

@@ -77,6 +77,7 @@ export const Modal: React.FC<ModalProps> = ({
       center={center}>
       <ModalContainer onClick={e => e.stopPropagation()}>
         <ModalClose
+          data-testid="modalclick"
           fClose={fClose}
           showCloseButton={showCloseButton}
         />

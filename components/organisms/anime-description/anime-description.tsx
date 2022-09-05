@@ -26,18 +26,18 @@ export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({ dat
 
     const TableDetails = () => (
         <DivMaster width="100%">
-            <RowDetail title="Type" result={data.type} />
-            <RowDetail title="Source" result={data.source} />
-            <RowDetail title="Episodes" result={data.episodes} />
-            <RowDetail title="Status" result={data.status} />
+            <RowDetail title="Type" result={data?.type} />
+            <RowDetail title="Source" result={data?.source} />
+            <RowDetail title="Episodes" result={data?.episodes} />
+            <RowDetail title="Status" result={data?.status} />
         </DivMaster>
     );
 
     const Scores = () => (
         <DivMaster display="flex" width="100%" justifyContent="space-between" mt={{ sm: 4, md: 7 }}>
-            <Score number={data.score} score="Score" />
-            <Score number={data.rank} score="Rank" />
-            <Score number={data.popularity} score="Popularity" />
+            <Score number={data?.score} score="Score" />
+            <Score number={data?.rank} score="Rank" />
+            <Score number={data?.popularity} score="Popularity" />
         </DivMaster>
     );
 
@@ -56,7 +56,7 @@ export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({ dat
                         maxWidth={{ sm: '100%', md: '34rem' }}
                         justifyContent="center">
                         <Image
-                            src={data.images.webp.large_image_url}
+                            src={data?.images?.webp?.large_image_url}
                             width={367}
                             height={330}
                             style={{ borderRadius: 10 }}
@@ -81,7 +81,7 @@ export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({ dat
                                 alignItems="initial"
                                 width="fit-content"
                                 display="contents">
-                                {data.title}
+                                {data?.title}
                             </Text>
                             <ImageCheck src="/check.svg" alt="check" />
                         </DivMaster>
@@ -89,7 +89,7 @@ export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({ dat
                         <Scores />
                     </DivMaster>
                 </DivMaster>
-                <Description synopsis={data.synopsis} />
+                <Description synopsis={data?.synopsis} />
             </Container>
         </>
     );
