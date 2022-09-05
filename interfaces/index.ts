@@ -1,4 +1,4 @@
-import { ElementType } from 'react';
+import { ElementType, MouseEventHandler } from 'react';
 
 export interface HeaderContentProps {
   handleClick?: () => void;
@@ -128,6 +128,7 @@ export interface IText {
 
 export interface ImputSearch {
   onChange?: (value: string) => void;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   placeHolder?: string;
   round?: boolean;
   size?: number;
@@ -154,7 +155,7 @@ export interface IntegrationsTableProps {
 }
 
 export interface AnimesStateProps {
-  animes: { animeList: Datum[] };
+  animes: { animeList: Datum[], animeSearchListed: Datum[] };
 }
 export interface AnimesProps {
   pagination: Pagination;
@@ -162,43 +163,43 @@ export interface AnimesProps {
 }
 
 export interface Datum {
-  mal_id: number;
-  url: string;
-  images: { [key: string]: Image };
-  trailer: Trailer;
-  approved: boolean;
-  titles: Title[];
-  title: string;
-  title_english: string;
-  title_japanese: string;
-  title_synonyms: string[];
-  type: string;
-  source: string;
-  episodes: number | null;
-  status: string;
-  airing: boolean;
-  aired: Aired;
-  duration: string;
-  rating: string;
-  score: number;
-  scored_by: number;
-  rank: number;
-  popularity: number;
-  members: number;
-  favorites: number;
-  synopsis: string;
-  background: null | string;
-  season: string;
-  year: number;
-  broadcast: Broadcast;
-  producers: Demographic[];
-  licensors: Demographic[];
-  studios: Demographic[];
-  genres: Demographic[];
-  explicit_genres: any[];
-  themes: Demographic[];
-  demographics: Demographic[];
-  map(
+  mal_id?: number;
+  url?: string;
+  images?: { [key: string]: Image };
+  trailer?: Trailer;
+  approved?: boolean;
+  titles?: Title[];
+  title?: string;
+  title_english?: string;
+  title_japanese?: string;
+  title_synonyms?: string[];
+  type?: string;
+  source?: string;
+  episodes?: number | null;
+  status?: string;
+  airing?: boolean;
+  aired?: Aired;
+  duration?: string;
+  rating?: string;
+  score?: number;
+  scored_by?: number;
+  rank?: number;
+  popularity?: number;
+  members?: number;
+  favorites?: number;
+  synopsis?: string;
+  background?: null | string;
+  season?: string;
+  year?: number;
+  broadcast?: Broadcast;
+  producers?: Demographic[];
+  licensors?: Demographic[];
+  studios?: Demographic[];
+  genres?: Demographic[];
+  explicit_genres?: any[];
+  themes?: Demographic[];
+  demographics?: Demographic[];
+  map?(
     arg0: ({
       mal_id,
       url,
@@ -349,114 +350,156 @@ export interface AnimeIDData {
 }
 
 export interface Data {
-  mal_id:          number;
-  url:             string;
-  images:          { [key: string]: Image };
-  trailer:         Trailer;
-  title:           string;
-  title_english:   string;
-  title_japanese:  string;
-  title_synonyms:  string[];
-  type:            string;
-  source:          string;
-  episodes:        number;
-  status:          string;
-  airing:          boolean;
-  aired:           Aired;
-  duration:        string;
-  rating:          string;
-  score:           number;
-  scored_by:       number;
-  rank:            number;
-  popularity:      number;
-  members:         number;
-  favorites:       number;
-  synopsis:        string;
-  background:      null;
-  season:          string;
-  year:            number;
-  broadcast:       Broadcast;
-  producers:       Demographic[];
-  licensors:       Demographic[];
-  studios:         Demographic[];
-  genres:          Demographic[];
+  mal_id: number;
+  url: string;
+  images: { [key: string]: Image };
+  trailer: Trailer;
+  title: string;
+  title_english: string;
+  title_japanese: string;
+  title_synonyms: string[];
+  type: string;
+  source: string;
+  episodes: number;
+  status: string;
+  airing: boolean;
+  aired: Aired;
+  duration: string;
+  rating: string;
+  score: number;
+  scored_by: number;
+  rank: number;
+  popularity: number;
+  members: number;
+  favorites: number;
+  synopsis: string;
+  background: null;
+  season: string;
+  year: number;
+  broadcast: Broadcast;
+  producers: Demographic[];
+  licensors: Demographic[];
+  studios: Demographic[];
+  genres: Demographic[];
   explicit_genres: any[];
-  themes:          Demographic[];
-  demographics:    Demographic[];
-  relations:       Relation[];
-  theme:           Theme;
-  external:        External[];
+  themes: Demographic[];
+  demographics: Demographic[];
+  relations: Relation[];
+  theme: Theme;
+  external: External[];
 }
 
 export interface Aired {
-  from:   Date;
-  to:     Date;
-  prop:   Prop;
+  from: Date;
+  to: Date;
+  prop: Prop;
   string: string;
 }
 
 export interface Prop {
   from: From;
-  to:   From;
+  to: From;
 }
 
 export interface From {
-  day:   number;
+  day: number;
   month: number;
-  year:  number;
+  year: number;
 }
 
 export interface Broadcast {
-  day:      string;
-  time:     string;
+  day: string;
+  time: string;
   timezone: string;
-  string:   string;
+  string: string;
 }
 
 export interface Demographic {
   mal_id: number;
-  type:   DemographicType;
-  name:   string;
-  url:    string;
+  type: DemographicType;
+  name: string;
+  url: string;
 }
 
 export enum Type {
-  Anime = "anime",
-  Manga = "manga",
+  Anime = 'anime',
+  Manga = 'manga',
 }
 
 export interface External {
   name: string;
-  url:  string;
+  url: string;
 }
 
 export interface Image {
-  image_url:       string;
+  image_url: string;
   small_image_url: string;
   large_image_url: string;
 }
 
 export interface Relation {
   relation: string;
-  entry:    Demographic[];
+  entry: Demographic[];
 }
 
 export interface Theme {
   openings: string[];
-  endings:  string[];
+  endings: string[];
 }
 
 export interface Trailer {
   youtube_id: string;
-  url:        string;
-  embed_url:  string;
-  images:     Images;
+  url: string;
+  embed_url: string;
+  images: Images;
 }
 
 export interface Images {
-  image_url:         string;
-  small_image_url:   string;
-  medium_image_url:  string;
-  large_image_url:   string;
+  image_url: string;
+  small_image_url: string;
+  medium_image_url: string;
+  large_image_url: string;
   maximum_image_url: string;
+}
+
+type ModalCloseType = 'normal' | 'custom-mobile' | 'custom-desktop';
+
+export interface IModalCloseButton {
+  fClose?: () => void;
+  showCloseButton?: boolean;
+}
+
+export interface ModalProps {
+  backgroundColor?: string;
+  animationDurationBg?: string;
+  width?: string;
+  height?: string;
+  minWidth?: string;
+  minHeight?: string;
+  borderRadius?: string;
+  boxShadow?: string;
+  bgColorModal?: string;
+  borderColor?: string;
+  fClose?: () => void;
+  showCloseButton?: boolean;
+  children?: React.ReactNode;
+  maxWidth?: string | MediaProps;
+  maxHeight?: string;
+  pt?: number;
+  center?: boolean;
+  footer?: React.ReactNode;
+  header?: React.ReactNode;
+  closeColor?: string;
+  modalCloseType?: ModalCloseType;
+  closeOnClickAway?: boolean;
+  margin?: string;
+  marginContent?: string;
+}
+
+export interface AutocompleProps {
+  value?: string;
+  fClose?: () => void;
+  data?: any;
+  pagination?: Pagination;
+  handleChange?: (e:never) => void;
 }

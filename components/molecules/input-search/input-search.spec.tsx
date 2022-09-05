@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
-import ImputSearch from './imput-search';
+import ImputSearch from './input-search';
 
 describe('ImputSearch', () => {
   const changeMock = jest.fn();

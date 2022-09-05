@@ -1,9 +1,16 @@
-import { LayoutProps } from '@interfaces';
+import { AnimesStateProps, LayoutProps } from '@interfaces';
 import styled from '@emotion/styled';
 import { theme } from '@theme';
-import { HeaderContent } from '@components';
+import { HeaderContent, Modal, Autocomplete } from '@components';
 import FooterContent from '@components/organisms/footer-content/footer-content';
 import { useRouter } from 'next/router';
+
+import { useState } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getAnimesBySearch } from '@redux/animes/actions';
+import { AnyAction } from 'redux';
+
 
 const Container = styled.div<LayoutProps>`
   align-items: center;
@@ -34,11 +41,21 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
 
   const pathMenu = router.asPath === '/';
+  const [openModal, setOpenModal] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    searchValue?.length >= 3 &&
+      dispatch(getAnimesBySearch(searchValue) as unknown as AnyAction);
+  };
+  const { animeSearchListed } = useSelector((state: AnimesStateProps) => state?.animes);
 
   return (
     <>
       <Header pathMenu={pathMenu}>
-        <HeaderContent pathMenu={pathMenu} />
+        <HeaderContent pathMenu={pathMenu} handleClick={() => setOpenModal(true)} />
       </Header>
       <Container>
         {children}
@@ -46,6 +63,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Footer pathMenu={pathMenu}>
         <FooterContent />
       </Footer>
+      {openModal && <Modal fClose={() => setOpenModal(false)} backgroundColor="#00000099">
+        <Autocomplete handleChange={handleChange} fClose={() => setOpenModal(false)} data={animeSearchListed} value={searchValue} />
+      </Modal>}
     </>
   )
 };

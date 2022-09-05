@@ -2,8 +2,9 @@ import * as animesTypes from './actionTypes';
 
 export const initialState = {
   animeList: null,
-  pagination: null,
+  animeSearchListed:null,
   links: null,
+  pagination: null,
 };
 
 const animesReducer = (state = initialState, action) => {
@@ -31,6 +32,17 @@ const animesReducer = (state = initialState, action) => {
         links: action.payload,
       };
 
+      case animesTypes.FETCH_SEARCH_ANIMES:
+        return {
+          ...state,
+        };
+  
+      case animesTypes.SUCCESS_FETCH_SEARCH_ANIMES_DATA:
+        return {
+          ...state,
+          animeSearchListed: action.payload,
+        };
+        
     default:
       return {
         ...state,

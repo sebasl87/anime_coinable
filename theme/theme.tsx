@@ -35,6 +35,7 @@ const theme: ITheme = {
     gray300: '#929292',
     gray400: '#a7a7a7',
     gray500: '#b9b9b9',
+    gray600: '#757575',
     background: '#f4f4ff',
     white: '#ffffff',
   },
@@ -91,12 +92,19 @@ const theme: ITheme = {
       letter-spacing: 0em;
       text-align: left;
     `,
-
     'H3-w500': css`
       font-family: Inter;
       font-size: 12px;
       font-weight: 500;
       line-height: 15px;
+      letter-spacing: 0em;
+      text-align: left;
+    `,
+    'H3-w500-16': css`
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19px;
       letter-spacing: 0em;
       text-align: left;
     `,

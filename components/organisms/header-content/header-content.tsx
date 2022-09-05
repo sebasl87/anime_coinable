@@ -31,7 +31,7 @@ export const HeaderContent: React.FC<HeaderContentProps> = ({ handleClick, pathM
             <Text fontType="H1-w600">
               Anime
             </Text>
-            <InputSearch />
+            <InputSearch onClick={handleClick} />
             <CalendarDate isMobile={isMobile} />
           </>
         ) : (

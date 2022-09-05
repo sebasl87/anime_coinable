@@ -34,7 +34,7 @@ export const AnimeDescription: React.FC<ContainerAnimeDescriptionProps> = ({ dat
     );
 
     const Scores = () => (
-        <DivMaster display="flex" width="100%" justifyContent="space-between" mt={4}>
+        <DivMaster display="flex" width="100%" justifyContent="space-between" mt={{ sm: 4, md: 7 }}>
             <Score number={data.score} score="Score" />
             <Score number={data.rank} score="Rank" />
             <Score number={data.popularity} score="Popularity" />
