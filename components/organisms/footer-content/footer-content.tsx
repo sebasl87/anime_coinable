@@ -1,9 +1,7 @@
-import { DivMaster, Text, InputSearch } from '../../index';
+import { DivMaster, Text } from '../../index';
 import styled from '@emotion/styled';
 import { theme } from '@theme';
 import ChevronUp from '@icons/chevronUp/chevronUp';
-
-
 
 const Container = styled.div`
   align-items: center;
@@ -15,12 +13,11 @@ const Container = styled.div`
   margin: auto;
 `;
 
-
 export const FooterContent: React.FC = () => {
     return (
         <>
             <Container>
-                <DivMaster maxWidth='40%'>
+                <DivMaster maxWidth='36rem'>
                     <Text fontType="H2-w600" justifyContent="left" mb={1}>
                         Sebastian Roger Loguzzo
                     </Text>
@@ -28,7 +25,7 @@ export const FooterContent: React.FC = () => {
                         I apply to Coinable in AngelList and I really enjoy this challenge because It's good to show what I can do and more...
                     </Text>
                 </DivMaster>
-                <DivMaster onClick={() => document.documentElement.scrollTop = 0} cursor="pointer">
+                <DivMaster onClick={() => document.documentElement.scrollTop = 0} cursor="pointer" ml={{ sm: 2, md: 0 }}>
                     <ChevronUp />
                 </DivMaster>
             </Container>
