@@ -1,5 +1,5 @@
 import { DivMaster, Text } from '../../index';
-import { AnimeIDData, Data, HeaderContentProps } from '@interfaces';
+import { Data, HeaderContentProps } from '@interfaces';
 import styled from '@emotion/styled';
 import { Score, RowDetail, Description } from '@molecules';
 import Image from 'next/image';

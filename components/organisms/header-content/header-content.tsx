@@ -1,13 +1,10 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import { DivMaster, Text, InputSearch, CalendarDate } from '../../index';
-
+import { DivMaster, Text, InputSearch, CalendarDate } from '@components';
 import { HeaderContentProps } from '@interfaces';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import ChevronBack from '@icons/chevronBack/chevronBack';
 import { useContext } from 'react';
 import { AnimeContext } from '@hooks';
-
 
 const Container = styled.div<HeaderContentProps>`
   align-items: center;

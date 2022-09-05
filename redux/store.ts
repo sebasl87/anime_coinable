@@ -1,13 +1,7 @@
 import { createStore, applyMiddleware, compose, Store } from 'redux';
-
-
 import thunk from 'redux-thunk';
-import rootReducer from './combineReducer';
 import { createWrapper } from "next-redux-wrapper"
-
-interface IStore extends Store {
-  __persistor?: any;
-}
+import rootReducer from './combineReducer';
 
 const middleware = [thunk];
 let composeEnhancers;

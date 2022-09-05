@@ -1,28 +1,7 @@
 import { DivMaster, Text } from '@atoms';
 import { BoxImageProps } from '@interfaces';
-import styled from '@emotion/styled';
 import { theme } from '@theme';
 import Image from 'next/image';
-
-const RowImage = styled.div<{ backgroundColor?: string; AR?: boolean }>`
-  display: flex;
-  width: 100%;
-  height: ${props => props.AR && `${theme.spaces(14)}`};
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid ${theme.colors.background};
-  padding-top: ${theme.spaces(3)};
-  padding-bottom: ${theme.spaces(3)};
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  border-top-left-radius: ${theme.spaces(0.75)};
-  border-top-right-radius: ${theme.spaces(0.75)};
-  cursor: ${props => (props.AR ? 'default' : 'pointer')};
-  &:hover {
-    opacity: ${props => (props.AR ? 1 : 0.85)};
-  }
-`;
-
-
 
 export const BoxImage: React.FC<BoxImageProps> = ({
   image_url,

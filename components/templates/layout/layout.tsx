@@ -1,15 +1,12 @@
-import { AnimesStateProps, LayoutProps } from '@interfaces';
-import styled from '@emotion/styled';
-import { theme } from '@theme';
-import { HeaderContent, Modal, Autocomplete } from '@components';
-import FooterContent from '@components/organisms/footer-content/footer-content';
-import { useRouter } from 'next/router';
-
 import { useState } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import { getAnimesBySearch } from '@redux/animes/actions';
 import { AnyAction } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
+import styled from '@emotion/styled';
+import { AnimesStateProps, LayoutProps } from '@interfaces';
+import { theme } from '@theme';
+import { HeaderContent, Modal, Autocomplete, FooterContent } from '@components';
 
 
 const Container = styled.div<LayoutProps>`

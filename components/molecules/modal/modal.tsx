@@ -31,7 +31,6 @@ const ModalContent = styled.div<ModalProps>`
   flex-direction: column;
   z-index: 9999;
   position: relative;
-
 `;
 
 const ModalContainer = styled.div`
@@ -41,7 +40,6 @@ const ModalContainer = styled.div`
   max-width: 77rem;
   width: 100%;
 `;
-
 
 export const Modal: React.FC<ModalProps> = ({
   children,

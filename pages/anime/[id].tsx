@@ -1,6 +1,5 @@
-import { AnimeDescription } from '@components';
 import { GetStaticPaths, GetStaticProps } from 'next';
-
+import { AnimeDescription } from '@components';
 
 const AnimeDetails = ({ animeData }) => {
     return (

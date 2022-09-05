@@ -1,9 +1,7 @@
 import { CalendarDateProps } from '@interfaces';
 import { theme } from '@theme';
 import { Text } from '@atoms'
-
 import { format } from 'date-fns'
-
 
 export const CalendarDate: React.FC<CalendarDateProps> = ({
   isMobile = true

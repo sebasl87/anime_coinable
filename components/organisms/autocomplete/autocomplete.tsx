@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-
 import { RowAnimeOption, Text } from '@components';
 import { useRouter } from 'next/router';
 import { AutocompleProps } from '@interfaces';
@@ -24,7 +23,6 @@ const ContainerDisplayOptions = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export const NoMatch = styled.div``;
 
 const Input = styled.input`
     background-color: transparent;
