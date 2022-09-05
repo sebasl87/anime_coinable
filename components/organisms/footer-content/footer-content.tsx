@@ -17,7 +17,6 @@ const Container = styled.div`
 
 
 export const FooterContent: React.FC = () => {
-
     return (
         <>
             <Container>
@@ -29,9 +28,9 @@ export const FooterContent: React.FC = () => {
                         I apply to Coinable in AngelList and I really enjoy this challenge because It's good to show what I can do and more...
                     </Text>
                 </DivMaster>
-                <div>
+                <DivMaster onClick={() => document.documentElement.scrollTop = 0} cursor="pointer">
                     <ChevronUp />
-                </div>
+                </DivMaster>
             </Container>
         </>
     )
